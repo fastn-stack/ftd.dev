@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><base href="/ftd-dev-en/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>FTD Language</title>
+    <script type="ftd" id="ftd-data">
+        {
+  "@body@0,0": {
+    "value": "Every `ftd` document is rendered in the context of a \"main container\".",
+    "dependencies": {}
+  },
+  "@body@0,0,0,1,0": {
+    "value": "Every `ftd` document is rendered in the context of a \"main container\".",
+    "dependencies": {
+      "0,0,1,0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,1": {
+    "value": "`ftd` has two container components: [`ftd.column`](/fifthtry/ftd/column/) and \n[`ftd.row`](/fifthtry/ftd/row/). These two components can store zero or more \ncomponents as children.\n\nThe main container for the document is an `ftd.column`. It is created when we start\nrendering and is set as the \"current container\".",
+    "dependencies": {}
+  },
+  "@body@0,1,1": {
+    "value": "`ftd` has two container components: [`ftd.column`](/fifthtry/ftd/column/) and \n[`ftd.row`](/fifthtry/ftd/row/). These two components can store zero or more \ncomponents as children.\n\nThe main container for the document is an `ftd.column`. It is created when we start\nrendering and is set as the \"current container\".",
+    "dependencies": {
+      "0,0,1,0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,10": {
+    "value": "-- ftd.row:\nopen: false\n\n-- ftd.row:\nopen: true\n\n--- ftd.text: hello\n\n-- ftd.row:\nopen: false",
+    "dependencies": {
+      "0,0,1,0,0,3,6,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,11": {
+    "value": "In this example, the first row is not open, even though it has no children, \nbecause we set the `open` attribute to `false`. This means the next row is not \ninserted inside the first row, which would have happened had it not been a closed \ncontainer.\n\nThe second row, on the other hand, has a child, \"hello\" text, and it would have \nnormally been considered closed, but we kept it open using the `open` attribute,\nwhich means the third row is placed inside the second row.",
+    "dependencies": {
+      "0,0,1,0,0,3,7:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,12": {
+    "value": "An open container can set the value of `open` to the `id` of one of its children,\nwhen that is done, the `id`ed child is made the container in which all subsequent \ncomponents will be placed:",
+    "dependencies": {}
+  },
+  "@body@0,12,1": {
+    "value": "An open container can set the value of `open` to the `id` of one of its children,\nwhen that is done, the `id`ed child is made the container in which all subsequent \ncomponents will be placed:",
+    "dependencies": {
+      "0,0,1,0,0,3,8,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,13": {
+    "value": "-- component foo:\nopen: some-child\ncomponent: ftd.column\n\n--- ftd.row:\nid: some-child\n\n--- ftd.row:\n\n-- foo:\n\n-- ftd.text: hello",
+    "dependencies": {
+      "0,0,1,0,0,3,8,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,14": {
+    "value": "In this case `foo` has designated the first `row` inside it as the container which\nwill receive children.\n\n`hello` text will go inside the row with id: `some-child`.",
+    "dependencies": {
+      "0,0,1,0,0,3,8,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,15": {
+    "value": "In the last example we left a row inside another row as the current container.\nAnything new will be placed inside the row-inside-the-row. If we want to get back\nto the \"main container\", we use the container keyword:",
+    "dependencies": {}
+  },
+  "@body@0,15,1": {
+    "value": "In the last example we left a row inside another row as the current container.\nAnything new will be placed inside the row-inside-the-row. If we want to get back\nto the \"main container\", we use the container keyword:",
+    "dependencies": {
+      "0,0,1,0,0,4,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,16": {
+    "value": "-- container: ftd.main",
+    "dependencies": {
+      "0,0,1,0,0,4,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,17": {
+    "value": "Note that the main container created for the document is called `ftd.main`. This\nsentence also means the main container has an id: `ftd.main`. Actually the `id`\nis `main`, but since that container is part of `ftd` namespace, its full id is\n`ftd.main`.\n\nAny container can specify an id, and then we can use that id to insert more \nchildren in it:",
+    "dependencies": {
+      "0,0,1,0,0,4,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,18": {
+    "value": "-- ftd.row:\nopen: false\nid: first-row\n\n-- ftd.row:\nopen: true\nid: second-row\n\n--- ftd.text: hello\n\n-- container: first-row\n\n-- ftd.text: this goes as the first child of the first row\n\n-- container: second-row\n\n-- ftd.text: this is the second child of the second row",
+    "dependencies": {
+      "0,0,1,0,0,4,4,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,19": {
+    "value": "When defining a component based on a container component, we can do the container\nmanagement inside the definition as well. \n\nIn that case the id `ftd.main` points to the container belonging to the component\nbeing defined.",
+    "dependencies": {}
+  },
+  "@body@0,19,1": {
+    "value": "When defining a component based on a container component, we can do the container\nmanagement inside the definition as well. \n\nIn that case the id `ftd.main` points to the container belonging to the component\nbeing defined.",
+    "dependencies": {
+      "0,0,1,0,0,5,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,2": {
+    "value": "Current container is the container where every newly initialized component is \nplaced.",
+    "dependencies": {}
+  },
+  "@body@0,2,1": {
+    "value": "Current container is the container where every newly initialized component is \nplaced.",
+    "dependencies": {
+      "0,0,1,0,0,2,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,20": {
+    "value": "-- component foo:\ncomponent: ftd.row\n\n--- ftd.row:\nid: first-in-foo\n\n--- container: ftd.main\n\n--- ftd.text: second child of the outer ftd row\n\n--- container: first-in-foo\n\n--- ftd.text: first child of `first-in-foo` row",
+    "dependencies": {
+      "0,0,1,0,0,5,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,21": {
+    "value": "The IDs inside the component, eg `first-in-foo` here, are not accessible outside \nthe container.",
+    "dependencies": {
+      "0,0,1,0,0,5,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,22": {
+    "value": "An inner container facilitates us to set the current container as any \ninner container of a component, so that a new element can be placed inside it as it's child.\n\nConsider this component:",
+    "dependencies": {}
+  },
+  "@body@0,22,1": {
+    "value": "An inner container facilitates us to set the current container as any \ninner container of a component, so that a new element can be placed inside it as it's child.\n\nConsider this component:",
+    "dependencies": {
+      "0,0,1,0,0,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,23": {
+    "value": "-- component foo:\ncomponent: ftd.column\n\n--- ftd.column:\nid: c1\n\n--- ftd.column:\nid: c2\n\n-- foo:\nid: foo-1\n\n-- foo:\nid: foo-2",
+    "dependencies": {
+      "0,0,1,0,0,6,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,24": {
+    "value": "We have created two instances of `foo` with id as `foo-1` and `foo-2`,\nand each `foo` contains two columns (or inner containers), `c1` and `c2`. \nIf we wanted to place a child inside `c1` of first `foo` (i.e. one with id `foo-1`)\n, we must use `foo-1.c1`:",
+    "dependencies": {
+      "0,0,1,0,0,6,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,25": {
+    "value": "-- container: foo-1.c1\n\n-- ftd.text: hello",
+    "dependencies": {
+      "0,0,1,0,0,6,4,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,26": {
+    "value": "This would place the element `-- ftd.text: hello` as a child inside `c1` of `foo`\nwith id `foo-1`. For more example, visit this [link](/fifthtry/ftd/inner-container/)",
+    "dependencies": {
+      "0,0,1,0,0,6,5:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,3": {
+    "value": "-- ftd.text: hello",
+    "dependencies": {
+      "0,0,1,0,0,2,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,4": {
+    "value": "So when you see a code like above, the `ftd.text` component is initialized, and\nplaced into the current container.",
+    "dependencies": {
+      "0,0,1,0,0,2,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,5": {
+    "value": "If a container, say `ftd.row` or `ftd.column`, is created, and it has zero \nchildren, it is considered an \"open container\"",
+    "dependencies": {}
+  },
+  "@body@0,5,1": {
+    "value": "If a container, say `ftd.row` or `ftd.column`, is created, and it has zero \nchildren, it is considered an \"open container\"",
+    "dependencies": {
+      "0,0,1,0,0,3,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,6": {
+    "value": "-- ftd.row:",
+    "dependencies": {
+      "0,0,1,0,0,3,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,7": {
+    "value": "As you can see we have created an `ftd.row`, but it has zero children, so the \nrow is considered \"open\", and when `ftd` finds an open container, it first places\nit in the current container, and changes the current container to this new open \ncontainer.",
+    "dependencies": {
+      "0,0,1,0,0,3,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,8": {
+    "value": "-- ftd.row:\n\n--- ftd.text: hello\n\n--- ftd.text: world",
+    "dependencies": {
+      "0,0,1,0,0,3,4,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,9": {
+    "value": "In this example we created a row with two children. In this case since the \ncontainer is not empty, it is not made the current container. \n\nWe can force a container to be open or closed by using the `open` attribute:",
+    "dependencies": {
+      "0,0,1,0,0,3,5:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@lang@0,10": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,13": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,16": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,18": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,20": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,23": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,25": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,3": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,6": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,8": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@title@0,0": {
+    "value": "Container Management",
+    "dependencies": {
+      "0,0,1,0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,1": {
+    "value": "`ftd.main`: the main container",
+    "dependencies": {
+      "0,0,1,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,12": {
+    "value": "`open` can take an `id`",
+    "dependencies": {
+      "0,0,1,0,0,3,8,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,15": {
+    "value": "`container` keywords and container id",
+    "dependencies": {
+      "0,0,1,0,0,4,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,19": {
+    "value": "\"sub-component container management\"",
+    "dependencies": {
+      "0,0,1,0,0,5,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,2": {
+    "value": "\"current container\"",
+    "dependencies": {
+      "0,0,1,0,0,2,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,22": {
+    "value": "Inner Containers",
+    "dependencies": {
+      "0,0,1,0,0,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,5": {
+    "value": "An Open Container",
+    "dependencies": {
+      "0,0,1,0,0,3,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/Flash-theme#base_size": {
+    "value": "18",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#heading_size": {
+    "value": "28",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral": {
+    "value": "#fff",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-200": {
+    "value": "#ced2dd",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-300": {
+    "value": "#F9F9F9",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-400": {
+    "value": "#E1E1E1",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-500": {
+    "value": "#323546",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-600": {
+    "value": "#3E4155",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-700": {
+    "value": "#1C1C24",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-800": {
+    "value": "#000",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#sub_heading_size": {
+    "value": "22",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#title_size": {
+    "value": "36",
+    "dependencies": {}
+  }
+}
+    </script>
+    <script type="ftd" id="ftd-external-children">
+        {
+  "main-container-external:0": [
+    {
+      "condition": [
+        "main-container:0,0,1,0"
+      ],
+      "set_at": "main-container:0,0,1,0"
+    }
+  ]
+}
+    </script>
+    <script>
+        // all ftd_utils are meant to be pure functions only: they can only depend on the
+// input passed, not on closures or global data etc
+let ftd_utils = {
+    is_visible: function (id, affected_id) {
+        return (document.querySelector(`[data-id="${affected_id}:${id}"]`).style.display !== "none");
+    },
+
+    box_shadow_value_null: function (value) {
+        return (value === "0px 0px 0px 0px") ? null : value;
+    },
+
+    box_shadow_value: function (parameter, data_id, value) {
+        let current_value  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('box-shadow');
+        if (current_value.length === 0) {
+            current_value = "0px 0px 0px 0px";
+        }
+        let first_split = current_value.split(') ');
+        if (first_split.length === 1) {
+            first_split.unshift('');
+        } else {
+            first_split[0] = `${first_split[0]})`;
+        }
+        if (parameter === "shadow-color") {
+            if (value === null) {
+                return ftd_utils.box_shadow_value_null(first_split[1].trim());
+            }
+            first_split[0] = value;
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        let second_split =  first_split[1].split(' ');
+        if (parameter === "shadow-offset-x") {
+            second_split[0] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-offset-y") {
+            second_split[1] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-blur") {
+            second_split[2] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-size") {
+            second_split[3] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+    },
+
+    align_value: function (data_id, value) {
+        let current_position  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('position');
+        if (current_position === "fixed" || current_position === "absolute") {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%,-50%)');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateY(-50%)');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%)');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            }
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left',null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            }
+        }
+
+    },
+
+    line_clamp: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('display', null);
+            doc.style.setProperty('overflow', null);
+            doc.style.setProperty('-webkit-line-clamp', null);
+            doc.style.setProperty('-webkit-box-orient', null);
+        } else {
+            doc.style.setProperty('display', '-webkit-box');
+            doc.style.setProperty('overflow', 'hidden');
+            doc.style.setProperty('-webkit-line-clamp', value);
+            doc.style.setProperty('-webkit-box-orient', 'vertical');
+        }
+    },
+
+    background_image: function (data_id, value) {
+        let background_repeat = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('background-repeat');
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-image', null);
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        } else {
+            doc.style.setProperty('background-image', `url(${value})`);
+            if (background_repeat.length === 0) {
+                doc.style.setProperty('background-size', 'cover');
+                doc.style.setProperty('background-position', 'center');
+            }
+        }
+    },
+
+    background_repeat: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-repeat', null);
+            doc.style.setProperty('background-size', 'cover');
+            doc.style.setProperty('background-position', 'center');
+        } else {
+            doc.style.setProperty('background-repeat', 'repeat');
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        }
+    },
+
+    first_child_styling: function (data_id) {
+        let parent = document.querySelector(`[data-id="${data_id}"]`).parentElement;
+        if (parent.dataset.spacing !== undefined) {
+            let spacing = parent.dataset.spacing.split(":");
+            let property = spacing[0].trim();
+            let value = spacing[1].trim();
+            let first_child = true;
+            for (let i = 0; i < parent.children.length; i++) {
+                if (!first_child) {
+                    parent.children[i].style.setProperty(property, value);
+                } else if (parent.children[i].style.display !== 'none') {
+                    parent.children[i].style.setProperty(property, null);
+                    first_child = false;
+                }
+            }
+        }
+    },
+
+
+    set_style: function (parameter, data_id, value, important) {
+        if (["shadow-offset-x", "shadow-offset-y", "shadow-size", "shadow-blur", "shadow-color"].includes(parameter)) {
+            let box_shadow_value = ftd_utils.box_shadow_value(parameter,data_id, value);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('box-shadow', box_shadow_value);
+        } else if (parameter === "align" || parameter === "position") {
+            ftd_utils.align_value(data_id, value);
+        } else if (parameter === "line-clamp") {
+            ftd_utils.line_clamp(data_id, value);
+        } else if (parameter === "background-image") {
+            ftd_utils.background_image(data_id, value);
+        } else if (parameter === "background-repeat") {
+            ftd_utils.background_repeat(data_id, value);
+        } else if (important) {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value, 'important');
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value);
+        }
+    },
+
+    handle_action: function (id, target, value, data) {
+        data[target].value = value.toString();
+
+        let dependencies = data[target].dependencies;
+        for (const dependency in dependencies) {
+            if (!dependencies.hasOwnProperty(dependency)) {
+                continue;
+            }
+            let json_dependencies = JSON.parse(dependencies[dependency]);
+            var styles_edited = [];
+            for (const index in json_dependencies) {
+                let json_dependency = json_dependencies[index];
+                if (json_dependency.dependency_type === "Value") {
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).innerText = data[target].value;
+                } else if (json_dependency.dependency_type === "Visible") {
+                    let display = "none";
+                    if (data[target].value === json_dependency.condition) {
+                        let is_flex = document.querySelector(`[data-id="${dependency}:${id}"]`).style.flexDirection.length;
+                        let is_webkit = document.querySelector(`[data-id="${dependency}:${id}"]`).style.webkitLineClamp.length;
+                        if (is_flex) {
+                            display = "flex";
+                        } else if (is_webkit) {
+                            display = "-webkit-box";
+                        } else {
+                            display = "block";
+                        }
+                    }
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).style.display = display;
+                    ftd_utils.first_child_styling(`${dependency}:${id}`);
+
+                } else if (json_dependency.dependency_type === "Style") {
+                    if (data[target].value === json_dependency.condition) {
+                        for (const parameter in json_dependency.parameters) {
+                            let value = json_dependency.parameters[`${parameter}`].value.value;
+                            let important = json_dependency.parameters[`${parameter}`].value.important;
+                            ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                            if (!styles_edited.includes(parameter)) {
+                                styles_edited.push(parameter);
+                            }
+                        }
+                    } else {
+                        for (const parameter in json_dependency.parameters) {
+                            let default_value = json_dependency.parameters[`${parameter}`].default;
+                            if (!styles_edited.includes(parameter)) {
+                                if (default_value === null) {
+                                    if (["border-left-width", "border-right-width", "border-top-width", "border-bottom-width"].includes(parameter)) {
+                                        default_value = "0px";
+                                        document.querySelector(`[data-id="${dependency}:${id}"]`).style[`${parameter}`] = default_value;
+                                    } else {
+                                        ftd_utils.set_style(parameter, `${dependency}:${id}`, default_value, false);
+                                    }
+                                } else {
+                                    let value = default_value.value;
+                                    let important = default_value.important;
+                                    ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+window.ftd = (function () {
+    let ftd_data = {};
+    let ftd_external_children = {};
+
+    function external_children_replace(id) {
+        let external_children = ftd_external_children[id];
+        for (const object in external_children) {
+            if (!external_children.hasOwnProperty(object)) {
+                continue;
+            }
+
+            let conditions = external_children[object];
+            for (const idx in conditions) {
+                if (!conditions.hasOwnProperty(idx)) {
+                    continue;
+                }
+
+                let condition = conditions[idx].condition;
+                let set_at = conditions[idx].set_at;
+                let display = true;
+                for (const i in condition) {
+                    if (!condition.hasOwnProperty(i)) {
+                        continue;
+                    }
+
+                    display &= ftd_utils.is_visible(id, conditions[idx].condition[i])
+                    if (!display) {
+                        break;
+                    }
+                }
+                if (display) {
+                    console.log(`${object}::: ${set_at}`);
+                    let get_element_set_at = document.querySelector(`[data-id="${set_at}:${id}"]`);
+                    let objects_to_set = document.querySelectorAll(`[data-ext-id="${object}:${id}"]`);
+                    for (let i = 0; i < objects_to_set.length; i++) {
+                        let object_to_set = objects_to_set[i];
+                        let parent = object_to_set.parentElement;
+                        if (parent !== get_element_set_at) {
+                            get_element_set_at.appendChild(object_to_set);
+                        }
+                    }
+                    return;
+                }
+            }
+
+        }
+    }
+
+    function handle_event(evt, id, action) {
+        let act = action["action"];
+        let data = ftd_data[id];
+        if (act === "stop-propagation") {
+            evt.stopPropagation();
+        } else if (act === "prevent-default") {
+            evt.preventDefault();
+        } else if (act === "toggle") {
+            let target = action["target"];
+            exports.set_bool(id, target, data[target].value !== 'true');
+        } else if (act === "message-host") {
+            let target = action["target"].trim();
+            window[target]();
+        } else if (act === "increment") {
+            let target = action["target"];
+            let increment = 1;
+            if (action["parameters"].by !== undefined) {
+                increment = parseInt(action["parameters"].by[0]);
+            }
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+            exports.increment_decrement_value(id, target, increment, clamp_min, clamp_max);
+
+        } else if (act === "decrement") {
+            let target = action["target"];
+            let decrement = -1;
+            if (action["parameters"].by !== undefined) {
+                decrement = -parseInt(action["parameters"].by[0]);
+            }
+
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+
+            exports.increment_decrement_value(id, target, decrement, clamp_min, clamp_max);
+        } else if (act === "set-value") {
+            let target = action["target"];
+            let value = action["parameters"].value[0];
+            if (action["parameters"].value[1] === "integer") {
+                value = parseInt(value);
+            } else if (action["parameters"].value[1] === "decimal") {
+                value = parseFloat(value);
+            } else if (action["parameters"].value[1] === "boolean") {
+                value = (value === "true");
+            }
+
+            let data = ftd_data[id];
+            ftd_utils.handle_action(id, target, value, data);
+
+        } else {
+            console.log("unknown action:", act);
+            return;
+        }
+        external_children_replace(id);
+
+    }
+
+    let exports = {};
+
+    exports.handle_event = function (evt, id, event) {
+        console.log(id, event);
+        let actions = JSON.parse(event);
+        for (const action in actions) {
+            handle_event(evt, id, actions[action])
+        }
+    }
+
+    exports.increment_decrement_value = function (id, variable, increment_by, clamp_min, clamp_max) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        let value = parseInt(data[variable].value);
+        value += increment_by;
+
+        if (clamp_max !== undefined) {
+            let min = (clamp_min === undefined) ? 0: clamp_min
+            if (clamp_max < value) {
+                value = min;
+            }
+            if (clamp_min > value) {
+                value = clamp_max;
+            }
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_bool = function (id, variable, value) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_multi_value = function (id, list) {
+        for (const idx in list) {
+            if (!list.hasOwnProperty(idx)) {
+                continue;
+            }
+
+            let item = list[idx];
+            let [variable, value] = item;
+            this.set_bool(id, variable, value);
+        }
+    }
+
+    exports.init = function (id, data, external_children) {
+        ftd_data[id] = data;
+        ftd_external_children[id] = external_children;
+    }
+
+    return exports;
+})();
+
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+        pre {
+            white-space: break-spaces;
+        }
+
+        pre code {
+            overflow-x: auto;
+            display: block;
+            padding: 10px !important;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .ft_md ul,
+        .ft_md ol,
+        .ft_md p {
+            margin: 10px 0;
+        }
+
+        .ft_md h1,
+        .ft_md h2,
+        .ft_md h3,
+        .ft_md h4,
+        .ft_md h5 {
+            margin-top: 34px;
+            margin-bottom: 0;
+            line-height: 1.2em;
+            color: #000000;
+        }
+
+        .ft_md ul ul,
+        .ft_md ul ol,
+        .ft_md ol ul,
+        .ft_md ol ol {
+            line-height: 1.5em;
+            margin: 0;
+        }
+
+        .ft_md ul li,
+        .ft_md ol li,
+        .ft_md ul ol li .ft_md ul ul li .ft_md ol ul li .ft_md ol ol li {
+            position: relative;
+            padding-left: 32px;
+            margin: 4px 0;
+        }
+
+        .ft_md ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ft_md ol {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: item;
+        }
+
+        .ft_md ol li:before,
+        .ft_md ol ol li:before,
+        .ft_md ul ol li:before {
+            content: counter(item);
+            counter-increment: item;
+            background-color: #e4e9eb;
+            color: #000000;
+            font-size: 11px;
+            line-height: 10px;
+            text-align: center;
+            padding: 4px 0;
+            height: 10px;
+            width: 18px;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .ft_md ul li::before,
+        .ft_md ul ul li::before,
+        .ft_md ol ul li::before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left: 8px;
+            top: 10px;
+            border-radius: 50%;
+            background: #c1c8ce;
+        }
+
+        .ft_md a {
+            color: #0047b4;
+            text-decoration: none;
+        }
+
+        .ft_md a:visited {
+            color: #632ec4;
+        }
+
+        .ft_md a:hover {
+            text-decoration: none;
+        }
+
+        .ft_md code {
+            font-size: 0.9em;
+            padding: 0.1em 0.25em;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .ft_md blockquote {
+            padding: 0.25em 1em;
+            margin: 1em 0;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .ft_md blockquote>blockquote {
+            margin: 0;
+        }
+
+        </style>
+
+</head>
+    <body>
+
+        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="/fifthtry/ftd/language/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">FTD Language</a>
+<div data-id="0,0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,1,0:main" href="/fifthtry/ftd/p1-grammar/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code> grammar</a></div>
+<div data-id="0,0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,2,0:main" href="/fifthtry/ftd/philosophy/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Philosophy</a></div>
+<div data-id="0,0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,0:main" href="/fifthtry/ftd/data-modelling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Data Modelling</a>
+<div data-id="0,0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,1,0:main" href="/fifthtry/ftd/variables/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Variables</a></div>
+<div data-id="0,0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,2,0:main" href="/fifthtry/ftd/built-in-types/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Built-in Types</a></div>
+<div data-id="0,0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,3,0:main" href="/fifthtry/ftd/record/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>record</code></a></div>
+<div data-id="0,0,0,0,3,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,4,0:main" href="/fifthtry/ftd/or-type/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>or-type</code></a></div>
+<div data-id="0,0,0,0,3,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,5,0:main" href="/fifthtry/ftd/list/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>list</code></a></div>
+<div data-id="0,0,0,0,3,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,6,0:main" href="/fifthtry/ftd/reading-data/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Reading FTD Files</a></div></div>
+<div data-id="0,0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,0:main" href="/fifthtry/ftd/ui/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">UI</a>
+<div data-id="0,0,0,0,4,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,1,0:main" href="/fifthtry/ftd/component/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>component</code></a></div>
+<div data-id="0,0,0,0,4,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,0:main" href="/fifthtry/ftd/kernel/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Kernel Components</a>
+<div data-id="0,0,0,0,4,2,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,1,0:main" href="/fifthtry/ftd/row/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.row</code></a></div>
+<div data-id="0,0,0,0,4,2,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,2,0:main" href="/fifthtry/ftd/column/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.column</code></a></div>
+<div data-id="0,0,0,0,4,2,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,3,0:main" href="/fifthtry/ftd/text/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.text</code></a></div>
+<div data-id="0,0,0,0,4,2,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,4,0:main" href="/fifthtry/ftd/image/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.image</code></a></div>
+<div data-id="0,0,0,0,4,2,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,5,0:main" href="/fifthtry/ftd/iframe/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.iframe</code></a></div>
+<div data-id="0,0,0,0,4,2,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,6,0:main" href="/fifthtry/ftd/integer/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.integer</code></a></div>
+<div data-id="0,0,0,0,4,2,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,7,0:main" href="/fifthtry/ftd/decimal/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.decimal</code></a></div>
+<div data-id="0,0,0,0,4,2,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,8,0:main" href="/fifthtry/ftd/boolean/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.boolean</code></a></div>
+<div data-id="0,0,0,0,4,2,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,9,0:main" href="/fifthtry/ftd/common/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Common Attributes</a></div>
+<div data-id="0,0,0,0,4,2,10:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,10,0:main" href="/fifthtry/ftd/container/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Attributes</a></div></div>
+<div data-id="0,0,0,0,4,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,3,0:main" href="/fifthtry/ftd/container-management/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Management</a></div>
+<div data-id="0,0,0,0,4,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,4,0:main" href="/fifthtry/ftd/if/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>if</code>: Conditional Components</a></div>
+<div data-id="0,0,0,0,4,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,5,0:main" href="/fifthtry/ftd/if-attr/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Conditional Attributes</a></div>
+<div data-id="0,0,0,0,4,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,6,0:main" href="/fifthtry/ftd/loop/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$loop$</code>: Looping Over Lists</a></div>
+<div data-id="0,0,0,0,4,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,7,0:main" href="/fifthtry/ftd/id/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">ID</a></div>
+<div data-id="0,0,0,0,4,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,8,0:main" href="/fifthtry/ftd/event-handling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$event-&lt;event-name&gt;$</code>: Event Handling</a></div>
+<div data-id="0,0,0,0,4,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,9,0:main" href="/fifthtry/ftd/auto-nesting/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Auto Nesting</a></div></div>
+<div data-id="0,0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,5,0:main" href="/fifthtry/ftd/import/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>import</code></a></div>
+<div data-id="0,0,0,0,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,0:main" href="/fifthtry/ftd/examples/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Examples</a>
+<div data-id="0,0,0,0,6,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,1,0:main" href="/fifthtry/ftd/creating-a-tree/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Creating a tree</a></div></div>
+<div data-id="0,0,0,0,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,7,0:main" href="/fifthtry/ftd/library/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::Library</code></a></div>
+<div data-id="0,0,0,0,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,8,0:main" href="/fifthtry/ftd/comments/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Comments In <code>ftd</code> Files</a></div></div>
+<div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="/fifthtry/ftd/internals/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Internals</a></div>
+<div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="/fifthtry/ftd/run-ftd/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">How to run ftd</a></div>
+<div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="/fifthtry/ftd/p1/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code>: A JSON/YML Replacement</a></div>
+<div data-id="0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,4,0:main" href="/fifthtry/ftd/changelog/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Changelog</a></div>
+<div data-id="0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,5,0:main" href="/fifthtry/ftd/roadmap/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Roadmap &amp; RFCs</a></div></div>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="container-management" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-bottom-width: 1px !important; border-color: rgba(206,210,221,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 30px; font-weight: 600; line-height: 30px; padding-bottom: 20px; padding-top: 30px; text-align: left; white-space: initial; width: 100%" class="ft_md">Container Management</div>
+<div data-id="0,0,1,0,0,0,1:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-top: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Every <code>ftd</code> document is rendered in the context of a “main container”.</p>
+</div></div></div>
+<div data-id="0,0,1,0,0,1:main-container-external:0:main" id="ftd-main-the-main-container" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>ftd.main</code>: the main container</div>
+<div data-id="0,0,1,0,0,1,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p><code>ftd</code> has two container components: <a href="/fifthtry/ftd/column/"><code>ftd.column</code></a> and
+<a href="/fifthtry/ftd/row/"><code>ftd.row</code></a>. These two components can store zero or more
+components as children.</p>
+<p>The main container for the document is an <code>ftd.column</code>. It is created when we start
+rendering and is set as the “current container”.</p>
+</div></div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" id="current-container" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">“current container”</div>
+<div data-id="0,0,1,0,0,2,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Current container is the container where every newly initialized component is
+placed.</p>
+</div>
+<div data-id="0,0,1,0,0,2,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.text: hello
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,2,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>So when you see a code like above, the <code>ftd.text</code> component is initialized, and
+placed into the current container.</p>
+</div></div>
+<div data-id="0,0,1,0,0,3:main-container-external:0:main" id="an-open-container" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">An Open Container</div>
+<div data-id="0,0,1,0,0,3,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>If a container, say <code>ftd.row</code> or <code>ftd.column</code>, is created, and it has zero
+children, it is considered an “open container”</p>
+</div>
+<div data-id="0,0,1,0,0,3,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.row:
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,3,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>As you can see we have created an <code>ftd.row</code>, but it has zero children, so the
+row is considered “open”, and when <code>ftd</code> finds an open container, it first places
+it in the current container, and changes the current container to this new open
+container.</p>
+</div>
+<div data-id="0,0,1,0,0,3,4:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,4,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: hello
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: world
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,3,5:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>In this example we created a row with two children. In this case since the
+container is not empty, it is not made the current container.</p>
+<p>We can force a container to be open or closed by using the <code>open</code> attribute:</p>
+</div>
+<div data-id="0,0,1,0,0,3,6:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,6,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">open: false
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">open: true
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: hello
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">open: false
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,3,7:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>In this example, the first row is not open, even though it has no children,
+because we set the <code>open</code> attribute to <code>false</code>. This means the next row is not
+inserted inside the first row, which would have happened had it not been a closed
+container.</p>
+<p>The second row, on the other hand, has a child, “hello” text, and it would have
+normally been considered closed, but we kept it open using the <code>open</code> attribute,
+which means the third row is placed inside the second row.</p>
+</div>
+<div data-id="0,0,1,0,0,3,8:main-container-external:0:main" id="open-can-take-an-id" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,8,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 21px; font-weight: 600; line-height: 21px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>open</code> can take an <code>id</code></div>
+<div data-id="0,0,1,0,0,3,8,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>An open container can set the value of <code>open</code> to the <code>id</code> of one of its children,
+when that is done, the <code>id</code>ed child is made the container in which all subsequent
+components will be placed:</p>
+</div>
+<div data-id="0,0,1,0,0,3,8,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,8,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component foo:
+</span><span style="color:#c0c5ce;">open: some-child
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">id: some-child
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- foo:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.text: hello
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,3,8,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>In this case <code>foo</code> has designated the first <code>row</code> inside it as the container which
+will receive children.</p>
+<p><code>hello</code> text will go inside the row with id: <code>some-child</code>.</p>
+</div></div></div>
+<div data-id="0,0,1,0,0,4:main-container-external:0:main" id="container-keywords-and-container-id" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md"><code>container</code> keywords and container id</div>
+<div data-id="0,0,1,0,0,4,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>In the last example we left a row inside another row as the current container.
+Anything new will be placed inside the row-inside-the-row. If we want to get back
+to the “main container”, we use the container keyword:</p>
+</div>
+<div data-id="0,0,1,0,0,4,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- container: ftd.main
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,4,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Note that the main container created for the document is called <code>ftd.main</code>. This
+sentence also means the main container has an id: <code>ftd.main</code>. Actually the <code>id</code>
+is <code>main</code>, but since that container is part of <code>ftd</code> namespace, its full id is
+<code>ftd.main</code>.</p>
+<p>Any container can specify an id, and then we can use that id to insert more
+children in it:</p>
+</div>
+<div data-id="0,0,1,0,0,4,4:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,4,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">open: false
+</span><span style="color:#c0c5ce;">id: first-row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.row:
+</span><span style="color:#c0c5ce;">open: true
+</span><span style="color:#c0c5ce;">id: second-row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: hello
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- container: first-row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.text: this goes as the first child of the first row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- container: second-row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.text: this is the second child of the second row
+</span></pre>
+</div></div></div>
+<div data-id="0,0,1,0,0,5:main-container-external:0:main" id="sub-component-container-management" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">“sub-component container management”</div>
+<div data-id="0,0,1,0,0,5,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>When defining a component based on a container component, we can do the container
+management inside the definition as well.</p>
+<p>In that case the id <code>ftd.main</code> points to the container belonging to the component
+being defined.</p>
+</div>
+<div data-id="0,0,1,0,0,5,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component foo:
+</span><span style="color:#c0c5ce;">component: ftd.row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">id: first-in-foo
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- container: ftd.main
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: second child of the outer ftd row
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- container: first-in-foo
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: first child of `first-in-foo` row
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,5,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>The IDs inside the component, eg <code>first-in-foo</code> here, are not accessible outside
+the container.</p>
+</div></div>
+<div data-id="0,0,1,0,0,6:main-container-external:0:main" id="inner-containers" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Inner Containers</div>
+<div data-id="0,0,1,0,0,6,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>An inner container facilitates us to set the current container as any
+inner container of a component, so that a new element can be placed inside it as it’s child.</p>
+<p>Consider this component:</p>
+</div>
+<div data-id="0,0,1,0,0,6,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component foo:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.column:
+</span><span style="color:#c0c5ce;">id: c1
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.column:
+</span><span style="color:#c0c5ce;">id: c2
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- foo:
+</span><span style="color:#c0c5ce;">id: foo-1
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- foo:
+</span><span style="color:#c0c5ce;">id: foo-2
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,6,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>We have created two instances of <code>foo</code> with id as <code>foo-1</code> and <code>foo-2</code>,
+and each <code>foo</code> contains two columns (or inner containers), <code>c1</code> and <code>c2</code>.
+If we wanted to place a child inside <code>c1</code> of first <code>foo</code> (i.e. one with id <code>foo-1</code>)
+, we must use <code>foo-1.c1</code>:</p>
+</div>
+<div data-id="0,0,1,0,0,6,4:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,4,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- container: foo-1.c1
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.text: hello
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,6,5:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>This would place the element <code>-- ftd.text: hello</code> as a child inside <code>c1</code> of <code>foo</code>
+with id <code>foo-1</code>. For more example, visit this <a href="/fifthtry/ftd/inner-container/">link</a></p>
+</div></div></div></div></div></div></div></div><style>
+@font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
+font-style: light;;
+src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+font-family: Open Sans }</style>
+
+
+    <script>
+        window.ftd.init(
+            "main",
+            JSON.parse(document.getElementById("ftd-data").innerText),
+            JSON.parse(document.getElementById("ftd-external-children").innerText)
+        );
+    </script>
+    </body>
+</html>

@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><base href="/ftd-dev-en/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>FTD Language</title>
+    <script type="ftd" id="ftd-data">
+        {
+  "@body@0,0": {
+    "value": "A tree view represents a hierarchical form of items where each item can have \nsubitems and so on. In this tutorial, we will learn how to create a tree using \n`ftd` step by step.",
+    "dependencies": {}
+  },
+  "@body@0,0,0,1,0": {
+    "value": "A tree view represents a hierarchical form of items where each item can have \nsubitems and so on. In this tutorial, we will learn how to create a tree using \n`ftd` step by step.",
+    "dependencies": {
+      "0,0,1,0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,1": {
+    "value": "Let us create a component that would contain all the items and subitems.\nThe component needs to be of [`column`](/ftd/column/) type which would stack the \nitems vertically.",
+    "dependencies": {}
+  },
+  "@body@0,1,1": {
+    "value": "Let us create a component that would contain all the items and subitems.\nThe component needs to be of [`column`](/ftd/column/) type which would stack the \nitems vertically.",
+    "dependencies": {
+      "0,0,1,0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,11": {
+    "value": "Let's understand the above code in detail. As we need to insert subitem inside \n`Beverage` item and it's proper to show subitems vertically. So we have created \n[component](/ftd/component/) with type column.\n\nThe other important thing to notice here is we have defined `open: true` which \nwould make the component open. (i.e. any element that comes after its call would\nbecome its child. To understand this better, please check this out \n[container-management](/ftd/container-management/)).\n\nWe have also defined an argument `$name` of type `string`. So, at the time of \ncalling this component, we have to pass an argument `name` of type `string`. Now, \nWe have to consume this argument to show it in frontend.",
+    "dependencies": {
+      "0,0,1,0,0,2,4:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,12": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: true\n\n--- ftd.text: $name",
+    "dependencies": {
+      "0,0,1,0,0,2,5,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,14": {
+    "value": "Here, we have inserted [`--- ftd.text: ref $name`](/ftd/text/) as the \nchild/subsection of `item` component. This has reference to the argument `$name`. \nHence consuming it 😊. Before we proceed further let's call this component and \nsee the result.",
+    "dependencies": {
+      "0,0,1,0,0,2,7:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,15": {
+    "value": "-- item: \nname: Beverage",
+    "dependencies": {
+      "0,0,1,0,0,2,8,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,17": {
+    "value": "Output:",
+    "dependencies": {
+      "0,0,1,0,0,2,10:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,19": {
+    "value": "Let's get back to adding items. \nIn this example, we are going to add Water and Juice as children of Bevarage \nand Mango Juice as child of Juice.",
+    "dependencies": {}
+  },
+  "@body@0,19,1": {
+    "value": "Let's get back to adding items. \nIn this example, we are going to add Water and Juice as children of Bevarage \nand Mango Juice as child of Juice.",
+    "dependencies": {
+      "0,0,1,0,0,3,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,2": {
+    "value": "-- ftd.column:",
+    "dependencies": {
+      "0,0,1,0,0,1,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,20": {
+    "value": "-- ftd.column:\n\n-- item:\nname: Beverage\nid: beverage-id\n\n-- item:\nname: Water\n\n-- container: beverage-id\n\n-- item:\nname: Juice\n\n-- item:\nname: Mango Juice",
+    "dependencies": {
+      "0,0,1,0,0,3,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,21": {
+    "value": "We are almost done now. Let's understand this in detail. First, we have inserted\nour old pal `Beverage` and now item `Beverage` becomes open. (Wait, it's different than the first time when we have inserted.\nIt has a property `id: beverage-id` but why?? Have patience for answer). \n\nCool, after that we have inserted item `Water` and it becomes child of item `Beverage`\nand now item `Water` becomes open. We need to change the open container/component to item `Bevarage` again.\nIn order to achieve this, we have added `--- container: beverage-id` \nwhich changes the open container to the one with id `beverage-id` which is item `Beverage`.\n(Now, you know why item `Beverage` has `id`). After this, we have inserted item `Juice`,\nand now this becomes an open container. At last, we have inserted item `Mango Juice`.",
+    "dependencies": {
+      "0,0,1,0,0,3,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,27": {
+    "value": "Let's combine everything now and see the magic 🪄. \n\n\n(Note: I have changed component `item` a little \nand added a `row` having two elements of type `text`. One with ✌️ emoji and the other with reference to the `$name` argument.)",
+    "dependencies": {}
+  },
+  "@body@0,27,1": {
+    "value": "Let's combine everything now and see the magic 🪄. \n\n\n(Note: I have changed component `item` a little \nand added a `row` having two elements of type `text`. One with ✌️ emoji and the other with reference to the `$name` argument.)",
+    "dependencies": {
+      "0,0,1,0,0,4,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,28": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: true\n\n--- ftd.row:\n\n--- ftd.text: ✌️\n\n--- ftd.text: $name\n\n\n-- ftd.column:\n\n-- item:\nname: Beverage\nid: beverage-id\n\n-- item:\nname: Water\n\n-- container: beverage-id\n\n-- item:\nname: Juice\n\n-- item:\nname: Mango Juice",
+    "dependencies": {
+      "0,0,1,0,0,4,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,29": {
+    "value": "Output",
+    "dependencies": {
+      "0,0,1,0,0,4,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,31": {
+    "value": "We have learnt how to create a tree. Now, we'll learn how to make it more interactive.\nAs you have guessed, we need to do changes in `-- component item:`.\nLet us take a quick look at updated version, then we'll discuss about it line by line.",
+    "dependencies": {}
+  },
+  "@body@0,31,1": {
+    "value": "We have learnt how to create a tree. Now, we'll learn how to make it more interactive.\nAs you have guessed, we need to do changes in `-- component item:`.\nLet us take a quick look at updated version, then we'll discuss about it line by line.",
+    "dependencies": {
+      "0,0,1,0,0,5,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,32": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: some-child\n$visible: true\n\n--- ftd.row:\n$event-click$: toggle $visible\n\n--- ftd.text: ✌️\n\n--- ftd.text: $name\n\n--- container: ftd.main\n\n--- ftd.column:\nif: $visible\nid: some-child",
+    "dependencies": {
+      "0,0,1,0,0,5,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,33": {
+    "value": "Thankfully, not many changes. phew 😮‍💨!! Let's take a closer look at changes in component `item`.",
+    "dependencies": {
+      "0,0,1,0,0,5,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,34": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: some-child\n$visible: true",
+    "dependencies": {
+      "0,0,1,0,0,5,4,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,35": {
+    "value": "Here, we have changed the `open` property value from `true` to `some-child`.\nThis would make the component `item` open as earlier, but now elements that come after its call \nwould be inserted inside the child/subsection of component `item` which has `id` as `some-child`.\n(If you still have not check out this [container-management](/ftd/container-management/) page.\nIt's highly recommended to do it now)\n\nAnd what is that child/subsection which has `id: some-child`? (Remember?? no?? \nCheck out the above code again.)\nIt is a kernel component `ftd.column`.\n\nWe have declared a local variable `@visible` of boolean type with default value as `true`.\n(Why?? All I can say, have patience again.)\n\nNow, let us focus on changes in subsections. We have added the below two subsections.",
+    "dependencies": {
+      "0,0,1,0,0,5,5:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,36": {
+    "value": "--- container: ftd.main\n\n--- ftd.column:\nif: $visible\nid: some-child",
+    "dependencies": {
+      "0,0,1,0,0,5,6,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,37": {
+    "value": "As `--- ftd.row:` was an open container, we need to change the container to component `item` \nhaving type `column`. This line `--- container: ftd.main` helps in achieving it.\nThe open container becomes `-- component item:`.\n\nAfter this, we have defined another kernel component `--- ftd.column:`.\nIt has a property `if: @visible` which make this component (and its children) visible,\nonly if the condition satisfies, i.e., if local variable `@visible` is true.\n\nWe need something which changes the value of the local variable `@visible` to control its\nvisibility. As this component `--- ftd.column:` is the open container for `item` (How?? Remember it has `id: some-child`)\nand all subsequent components will be placed inside it, so we can control the visibility\nof all those components.\n\nFTD has an action `toggle` which toggles a boolean variable. \nWe can attach it with an event `click`. Check these changes in subsection `--- ftd.row:` of `item`",
+    "dependencies": {
+      "0,0,1,0,0,5,7:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,38": {
+    "value": "--- ftd.row:\n$event-click$: toggle $visible",
+    "dependencies": {
+      "0,0,1,0,0,5,8,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,39": {
+    "value": "Let's combine everything now and see more magic 🪄. \nClick on `✌️Beverage` to see everything else disappears, then click it again, and everything is back.\nSimilarly, click on `✌️Juice` and see `✌️Mango Juice` disappear. You know how to make it appear again.",
+    "dependencies": {}
+  },
+  "@body@0,39,1": {
+    "value": "Let's combine everything now and see more magic 🪄. \nClick on `✌️Beverage` to see everything else disappears, then click it again, and everything is back.\nSimilarly, click on `✌️Juice` and see `✌️Mango Juice` disappear. You know how to make it appear again.",
+    "dependencies": {
+      "0,0,1,0,0,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,4": {
+    "value": "The above code uses `ftd.column` which is a [kernel component](/ftd/kernel/).\nNow let's insert an item.",
+    "dependencies": {
+      "0,0,1,0,0,1,4:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,40": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: some-child\n$visible: true\n\n--- ftd.row:\n$event-click$: toggle $visible\n\n--- ftd.text: ✌️\n\n--- ftd.text: $name\n\n--- container: ftd.main\n\n--- ftd.column:\nif: $visible\nid: some-child\n\n\n-- item:\nname: Beverage\nid: beverage-id\n\n\n-- item:\nname: Water\n\n\n-- container: beverage-id\n\n\n-- item:\nname: Juice\n\n\n-- item:\nname: Mango Juice",
+    "dependencies": {
+      "0,0,1,0,0,6,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,41": {
+    "value": "Output",
+    "dependencies": {
+      "0,0,1,0,0,6,3:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,5": {
+    "value": "-- ftd.column:\n\n-- item:\nname: Beverage",
+    "dependencies": {
+      "0,0,1,0,0,1,5,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,7": {
+    "value": "Bravo! we have successfully inserted an item with the property `name: Beverage`. \nYou must have noticed that we have called another component with the name `item` to display this item.\nThis component becomes subsection/child of the `ftd.column` component.\nBefore we insert another item, let's understand how to create the `item` component first.",
+    "dependencies": {
+      "0,0,1,0,0,1,7:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,9": {
+    "value": "-- component item:\ncomponent: ftd.column\nstring $name:\npadding-left: 10\nopen: true",
+    "dependencies": {
+      "0,0,1,0,0,2,2,2:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,10": {
+    "value": "Image 3",
+    "dependencies": {
+      "0,0,1,0,0,2,3,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,13": {
+    "value": "Image 4",
+    "dependencies": {
+      "0,0,1,0,0,2,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,16": {
+    "value": "Image 5",
+    "dependencies": {
+      "0,0,1,0,0,2,9,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,22": {
+    "value": "Image 6",
+    "dependencies": {
+      "0,0,1,0,0,3,4,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,23": {
+    "value": "Image 7",
+    "dependencies": {
+      "0,0,1,0,0,3,5,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,24": {
+    "value": "Image 8",
+    "dependencies": {
+      "0,0,1,0,0,3,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,25": {
+    "value": "Image 9",
+    "dependencies": {
+      "0,0,1,0,0,3,7,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,26": {
+    "value": "Image 10",
+    "dependencies": {
+      "0,0,1,0,0,3,8,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,3": {
+    "value": "Image 1",
+    "dependencies": {
+      "0,0,1,0,0,1,3,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@caption@0,6": {
+    "value": "Image 2",
+    "dependencies": {
+      "0,0,1,0,0,1,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@lang@0,12": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,15": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,2": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,20": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,28": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,32": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,34": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,36": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,38": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,40": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,5": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@lang@0,9": {
+    "value": "ftd",
+    "dependencies": {}
+  },
+  "@name@0,18,0": {
+    "value": "Beverage",
+    "dependencies": {
+      "0,0,1,0,0,2,11,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,30,0,0": {
+    "value": "Beverage",
+    "dependencies": {
+      "0,0,1,0,0,4,4,0,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,30,0,0,0": {
+    "value": "Water",
+    "dependencies": {
+      "0,0,1,0,0,4,4,0,0,1,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,30,0,0,1": {
+    "value": "Juice",
+    "dependencies": {
+      "0,0,1,0,0,4,4,0,0,2,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,30,0,0,1,0": {
+    "value": "Mango Juice",
+    "dependencies": {
+      "0,0,1,0,0,4,4,0,0,2,1,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,42,0": {
+    "value": "Beverage",
+    "dependencies": {
+      "0,0,1,0,0,6,4,0,0,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,42,0,0": {
+    "value": "Water",
+    "dependencies": {
+      "0,0,1,0,0,6,4,0,1,0,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,42,0,1": {
+    "value": "Juice",
+    "dependencies": {
+      "0,0,1,0,0,6,4,0,1,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@name@0,42,0,1,0": {
+    "value": "Mango Juice",
+    "dependencies": {
+      "0,0,1,0,0,6,4,0,1,1,1,0,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,10": {
+    "value": "https://i.imgur.com/vAT0h3k.png",
+    "dependencies": {
+      "0,0,1,0,0,2,3,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,13": {
+    "value": "https://i.imgur.com/4r6uyF1.png",
+    "dependencies": {
+      "0,0,1,0,0,2,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,16": {
+    "value": "https://i.imgur.com/zXOsLIz.png",
+    "dependencies": {
+      "0,0,1,0,0,2,9,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,22": {
+    "value": "https://i.imgur.com/KoA6Y1l.png",
+    "dependencies": {
+      "0,0,1,0,0,3,4,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,23": {
+    "value": "https://i.imgur.com/ULCthFb.png",
+    "dependencies": {
+      "0,0,1,0,0,3,5,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,24": {
+    "value": "https://i.imgur.com/ZKKKxwn.png",
+    "dependencies": {
+      "0,0,1,0,0,3,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,25": {
+    "value": "https://i.imgur.com/nv0v1G6.png",
+    "dependencies": {
+      "0,0,1,0,0,3,7,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,26": {
+    "value": "https://i.imgur.com/8DvnnLz.png",
+    "dependencies": {
+      "0,0,1,0,0,3,8,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,3": {
+    "value": "https://i.imgur.com/JDOcj1Q.png",
+    "dependencies": {
+      "0,0,1,0,0,1,3,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@src@0,6": {
+    "value": "https://i.imgur.com/ZXDE7Ap.png",
+    "dependencies": {
+      "0,0,1,0,0,1,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,0": {
+    "value": "How to create a tree using `ftd`?",
+    "dependencies": {
+      "0,0,1,0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,1": {
+    "value": "Create a component for tree",
+    "dependencies": {
+      "0,0,1,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,19": {
+    "value": "Add items to the tree",
+    "dependencies": {
+      "0,0,1,0,0,3,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,27": {
+    "value": "Presenting Tree",
+    "dependencies": {
+      "0,0,1,0,0,4,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,31": {
+    "value": "Adding Events",
+    "dependencies": {
+      "0,0,1,0,0,5,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,39": {
+    "value": "Presenting an interactive Tree",
+    "dependencies": {
+      "0,0,1,0,0,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,8": {
+    "value": "Create an `item` component",
+    "dependencies": {
+      "0,0,1,0,0,2,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@visible@0,42,0": {
+    "value": "true",
+    "dependencies": {
+      "some-child:0,0,1,0,0,6,4,0,1:main-container-external:0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "@visible@0,42,0,0": {
+    "value": "true",
+    "dependencies": {
+      "some-child:0,0,1,0,0,6,4,0,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "@visible@0,42,0,1": {
+    "value": "true",
+    "dependencies": {
+      "some-child:0,0,1,0,0,6,4,0,1,1,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "@visible@0,42,0,1,0": {
+    "value": "true",
+    "dependencies": {
+      "some-child:0,0,1,0,0,6,4,0,1,1,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1": "[{\"dependency_type\":\"Visible\",\"condition\":\"true\",\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/Flash-theme#base_size": {
+    "value": "18",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#heading_size": {
+    "value": "28",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral": {
+    "value": "#fff",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-200": {
+    "value": "#ced2dd",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-300": {
+    "value": "#F9F9F9",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-400": {
+    "value": "#E1E1E1",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-500": {
+    "value": "#323546",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-600": {
+    "value": "#3E4155",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-700": {
+    "value": "#1C1C24",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-800": {
+    "value": "#000",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#sub_heading_size": {
+    "value": "22",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#title_size": {
+    "value": "36",
+    "dependencies": {}
+  }
+}
+    </script>
+    <script type="ftd" id="ftd-external-children">
+        {
+  "main-container-external:0": [
+    {
+      "condition": [
+        "main-container:0,0,1,0"
+      ],
+      "set_at": "main-container:0,0,1,0"
+    }
+  ],
+  "main-container-external:0.some-child-external:0,0,1,0,0,6,4,0": [
+    {
+      "condition": [
+        "some-child:0,0,1,0,0,6,4,0,1:main-container-external:0"
+      ],
+      "set_at": "some-child:0,0,1,0,0,6,4,0,1:main-container-external:0"
+    }
+  ],
+  "main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1": [
+    {
+      "condition": [
+        "some-child:0,0,1,0,0,6,4,0,1,1,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0"
+      ],
+      "set_at": "some-child:0,0,1,0,0,6,4,0,1,1,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0"
+    }
+  ]
+}
+    </script>
+    <script>
+        // all ftd_utils are meant to be pure functions only: they can only depend on the
+// input passed, not on closures or global data etc
+let ftd_utils = {
+    is_visible: function (id, affected_id) {
+        return (document.querySelector(`[data-id="${affected_id}:${id}"]`).style.display !== "none");
+    },
+
+    box_shadow_value_null: function (value) {
+        return (value === "0px 0px 0px 0px") ? null : value;
+    },
+
+    box_shadow_value: function (parameter, data_id, value) {
+        let current_value  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('box-shadow');
+        if (current_value.length === 0) {
+            current_value = "0px 0px 0px 0px";
+        }
+        let first_split = current_value.split(') ');
+        if (first_split.length === 1) {
+            first_split.unshift('');
+        } else {
+            first_split[0] = `${first_split[0]})`;
+        }
+        if (parameter === "shadow-color") {
+            if (value === null) {
+                return ftd_utils.box_shadow_value_null(first_split[1].trim());
+            }
+            first_split[0] = value;
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        let second_split =  first_split[1].split(' ');
+        if (parameter === "shadow-offset-x") {
+            second_split[0] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-offset-y") {
+            second_split[1] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-blur") {
+            second_split[2] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-size") {
+            second_split[3] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+    },
+
+    align_value: function (data_id, value) {
+        let current_position  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('position');
+        if (current_position === "fixed" || current_position === "absolute") {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%,-50%)');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateY(-50%)');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%)');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            }
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left',null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            }
+        }
+
+    },
+
+    line_clamp: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('display', null);
+            doc.style.setProperty('overflow', null);
+            doc.style.setProperty('-webkit-line-clamp', null);
+            doc.style.setProperty('-webkit-box-orient', null);
+        } else {
+            doc.style.setProperty('display', '-webkit-box');
+            doc.style.setProperty('overflow', 'hidden');
+            doc.style.setProperty('-webkit-line-clamp', value);
+            doc.style.setProperty('-webkit-box-orient', 'vertical');
+        }
+    },
+
+    background_image: function (data_id, value) {
+        let background_repeat = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('background-repeat');
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-image', null);
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        } else {
+            doc.style.setProperty('background-image', `url(${value})`);
+            if (background_repeat.length === 0) {
+                doc.style.setProperty('background-size', 'cover');
+                doc.style.setProperty('background-position', 'center');
+            }
+        }
+    },
+
+    background_repeat: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-repeat', null);
+            doc.style.setProperty('background-size', 'cover');
+            doc.style.setProperty('background-position', 'center');
+        } else {
+            doc.style.setProperty('background-repeat', 'repeat');
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        }
+    },
+
+    first_child_styling: function (data_id) {
+        let parent = document.querySelector(`[data-id="${data_id}"]`).parentElement;
+        if (parent.dataset.spacing !== undefined) {
+            let spacing = parent.dataset.spacing.split(":");
+            let property = spacing[0].trim();
+            let value = spacing[1].trim();
+            let first_child = true;
+            for (let i = 0; i < parent.children.length; i++) {
+                if (!first_child) {
+                    parent.children[i].style.setProperty(property, value);
+                } else if (parent.children[i].style.display !== 'none') {
+                    parent.children[i].style.setProperty(property, null);
+                    first_child = false;
+                }
+            }
+        }
+    },
+
+
+    set_style: function (parameter, data_id, value, important) {
+        if (["shadow-offset-x", "shadow-offset-y", "shadow-size", "shadow-blur", "shadow-color"].includes(parameter)) {
+            let box_shadow_value = ftd_utils.box_shadow_value(parameter,data_id, value);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('box-shadow', box_shadow_value);
+        } else if (parameter === "align" || parameter === "position") {
+            ftd_utils.align_value(data_id, value);
+        } else if (parameter === "line-clamp") {
+            ftd_utils.line_clamp(data_id, value);
+        } else if (parameter === "background-image") {
+            ftd_utils.background_image(data_id, value);
+        } else if (parameter === "background-repeat") {
+            ftd_utils.background_repeat(data_id, value);
+        } else if (important) {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value, 'important');
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value);
+        }
+    },
+
+    handle_action: function (id, target, value, data) {
+        data[target].value = value.toString();
+
+        let dependencies = data[target].dependencies;
+        for (const dependency in dependencies) {
+            if (!dependencies.hasOwnProperty(dependency)) {
+                continue;
+            }
+            let json_dependencies = JSON.parse(dependencies[dependency]);
+            var styles_edited = [];
+            for (const index in json_dependencies) {
+                let json_dependency = json_dependencies[index];
+                if (json_dependency.dependency_type === "Value") {
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).innerText = data[target].value;
+                } else if (json_dependency.dependency_type === "Visible") {
+                    let display = "none";
+                    if (data[target].value === json_dependency.condition) {
+                        let is_flex = document.querySelector(`[data-id="${dependency}:${id}"]`).style.flexDirection.length;
+                        let is_webkit = document.querySelector(`[data-id="${dependency}:${id}"]`).style.webkitLineClamp.length;
+                        if (is_flex) {
+                            display = "flex";
+                        } else if (is_webkit) {
+                            display = "-webkit-box";
+                        } else {
+                            display = "block";
+                        }
+                    }
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).style.display = display;
+                    ftd_utils.first_child_styling(`${dependency}:${id}`);
+
+                } else if (json_dependency.dependency_type === "Style") {
+                    if (data[target].value === json_dependency.condition) {
+                        for (const parameter in json_dependency.parameters) {
+                            let value = json_dependency.parameters[`${parameter}`].value.value;
+                            let important = json_dependency.parameters[`${parameter}`].value.important;
+                            ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                            if (!styles_edited.includes(parameter)) {
+                                styles_edited.push(parameter);
+                            }
+                        }
+                    } else {
+                        for (const parameter in json_dependency.parameters) {
+                            let default_value = json_dependency.parameters[`${parameter}`].default;
+                            if (!styles_edited.includes(parameter)) {
+                                if (default_value === null) {
+                                    if (["border-left-width", "border-right-width", "border-top-width", "border-bottom-width"].includes(parameter)) {
+                                        default_value = "0px";
+                                        document.querySelector(`[data-id="${dependency}:${id}"]`).style[`${parameter}`] = default_value;
+                                    } else {
+                                        ftd_utils.set_style(parameter, `${dependency}:${id}`, default_value, false);
+                                    }
+                                } else {
+                                    let value = default_value.value;
+                                    let important = default_value.important;
+                                    ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+window.ftd = (function () {
+    let ftd_data = {};
+    let ftd_external_children = {};
+
+    function external_children_replace(id) {
+        let external_children = ftd_external_children[id];
+        for (const object in external_children) {
+            if (!external_children.hasOwnProperty(object)) {
+                continue;
+            }
+
+            let conditions = external_children[object];
+            for (const idx in conditions) {
+                if (!conditions.hasOwnProperty(idx)) {
+                    continue;
+                }
+
+                let condition = conditions[idx].condition;
+                let set_at = conditions[idx].set_at;
+                let display = true;
+                for (const i in condition) {
+                    if (!condition.hasOwnProperty(i)) {
+                        continue;
+                    }
+
+                    display &= ftd_utils.is_visible(id, conditions[idx].condition[i])
+                    if (!display) {
+                        break;
+                    }
+                }
+                if (display) {
+                    console.log(`${object}::: ${set_at}`);
+                    let get_element_set_at = document.querySelector(`[data-id="${set_at}:${id}"]`);
+                    let objects_to_set = document.querySelectorAll(`[data-ext-id="${object}:${id}"]`);
+                    for (let i = 0; i < objects_to_set.length; i++) {
+                        let object_to_set = objects_to_set[i];
+                        let parent = object_to_set.parentElement;
+                        if (parent !== get_element_set_at) {
+                            get_element_set_at.appendChild(object_to_set);
+                        }
+                    }
+                    return;
+                }
+            }
+
+        }
+    }
+
+    function handle_event(evt, id, action) {
+        let act = action["action"];
+        let data = ftd_data[id];
+        if (act === "stop-propagation") {
+            evt.stopPropagation();
+        } else if (act === "prevent-default") {
+            evt.preventDefault();
+        } else if (act === "toggle") {
+            let target = action["target"];
+            exports.set_bool(id, target, data[target].value !== 'true');
+        } else if (act === "message-host") {
+            let target = action["target"].trim();
+            window[target]();
+        } else if (act === "increment") {
+            let target = action["target"];
+            let increment = 1;
+            if (action["parameters"].by !== undefined) {
+                increment = parseInt(action["parameters"].by[0]);
+            }
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+            exports.increment_decrement_value(id, target, increment, clamp_min, clamp_max);
+
+        } else if (act === "decrement") {
+            let target = action["target"];
+            let decrement = -1;
+            if (action["parameters"].by !== undefined) {
+                decrement = -parseInt(action["parameters"].by[0]);
+            }
+
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+
+            exports.increment_decrement_value(id, target, decrement, clamp_min, clamp_max);
+        } else if (act === "set-value") {
+            let target = action["target"];
+            let value = action["parameters"].value[0];
+            if (action["parameters"].value[1] === "integer") {
+                value = parseInt(value);
+            } else if (action["parameters"].value[1] === "decimal") {
+                value = parseFloat(value);
+            } else if (action["parameters"].value[1] === "boolean") {
+                value = (value === "true");
+            }
+
+            let data = ftd_data[id];
+            ftd_utils.handle_action(id, target, value, data);
+
+        } else {
+            console.log("unknown action:", act);
+            return;
+        }
+        external_children_replace(id);
+
+    }
+
+    let exports = {};
+
+    exports.handle_event = function (evt, id, event) {
+        console.log(id, event);
+        let actions = JSON.parse(event);
+        for (const action in actions) {
+            handle_event(evt, id, actions[action])
+        }
+    }
+
+    exports.increment_decrement_value = function (id, variable, increment_by, clamp_min, clamp_max) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        let value = parseInt(data[variable].value);
+        value += increment_by;
+
+        if (clamp_max !== undefined) {
+            let min = (clamp_min === undefined) ? 0: clamp_min
+            if (clamp_max < value) {
+                value = min;
+            }
+            if (clamp_min > value) {
+                value = clamp_max;
+            }
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_bool = function (id, variable, value) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_multi_value = function (id, list) {
+        for (const idx in list) {
+            if (!list.hasOwnProperty(idx)) {
+                continue;
+            }
+
+            let item = list[idx];
+            let [variable, value] = item;
+            this.set_bool(id, variable, value);
+        }
+    }
+
+    exports.init = function (id, data, external_children) {
+        ftd_data[id] = data;
+        ftd_external_children[id] = external_children;
+    }
+
+    return exports;
+})();
+
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+        pre {
+            white-space: break-spaces;
+        }
+
+        pre code {
+            overflow-x: auto;
+            display: block;
+            padding: 10px !important;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .ft_md ul,
+        .ft_md ol,
+        .ft_md p {
+            margin: 10px 0;
+        }
+
+        .ft_md h1,
+        .ft_md h2,
+        .ft_md h3,
+        .ft_md h4,
+        .ft_md h5 {
+            margin-top: 34px;
+            margin-bottom: 0;
+            line-height: 1.2em;
+            color: #000000;
+        }
+
+        .ft_md ul ul,
+        .ft_md ul ol,
+        .ft_md ol ul,
+        .ft_md ol ol {
+            line-height: 1.5em;
+            margin: 0;
+        }
+
+        .ft_md ul li,
+        .ft_md ol li,
+        .ft_md ul ol li .ft_md ul ul li .ft_md ol ul li .ft_md ol ol li {
+            position: relative;
+            padding-left: 32px;
+            margin: 4px 0;
+        }
+
+        .ft_md ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ft_md ol {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: item;
+        }
+
+        .ft_md ol li:before,
+        .ft_md ol ol li:before,
+        .ft_md ul ol li:before {
+            content: counter(item);
+            counter-increment: item;
+            background-color: #e4e9eb;
+            color: #000000;
+            font-size: 11px;
+            line-height: 10px;
+            text-align: center;
+            padding: 4px 0;
+            height: 10px;
+            width: 18px;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .ft_md ul li::before,
+        .ft_md ul ul li::before,
+        .ft_md ol ul li::before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left: 8px;
+            top: 10px;
+            border-radius: 50%;
+            background: #c1c8ce;
+        }
+
+        .ft_md a {
+            color: #0047b4;
+            text-decoration: none;
+        }
+
+        .ft_md a:visited {
+            color: #632ec4;
+        }
+
+        .ft_md a:hover {
+            text-decoration: none;
+        }
+
+        .ft_md code {
+            font-size: 0.9em;
+            padding: 0.1em 0.25em;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .ft_md blockquote {
+            padding: 0.25em 1em;
+            margin: 1em 0;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .ft_md blockquote>blockquote {
+            margin: 0;
+        }
+
+        </style>
+
+</head>
+    <body>
+
+        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="main:0:main" id="main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" id="main:main-row" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="/fifthtry/ftd/language/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">FTD Language</a>
+<div data-id="0,0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,1,0:main" href="/fifthtry/ftd/p1-grammar/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code> grammar</a></div>
+<div data-id="0,0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,2,0:main" href="/fifthtry/ftd/philosophy/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Philosophy</a></div>
+<div data-id="0,0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,0:main" href="/fifthtry/ftd/data-modelling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Data Modelling</a>
+<div data-id="0,0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,1,0:main" href="/fifthtry/ftd/variables/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Variables</a></div>
+<div data-id="0,0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,2,0:main" href="/fifthtry/ftd/built-in-types/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Built-in Types</a></div>
+<div data-id="0,0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,3,0:main" href="/fifthtry/ftd/record/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>record</code></a></div>
+<div data-id="0,0,0,0,3,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,4,0:main" href="/fifthtry/ftd/or-type/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>or-type</code></a></div>
+<div data-id="0,0,0,0,3,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,5,0:main" href="/fifthtry/ftd/list/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>list</code></a></div>
+<div data-id="0,0,0,0,3,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,6,0:main" href="/fifthtry/ftd/reading-data/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Reading FTD Files</a></div></div>
+<div data-id="0,0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,0:main" href="/fifthtry/ftd/ui/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">UI</a>
+<div data-id="0,0,0,0,4,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,1,0:main" href="/fifthtry/ftd/component/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>component</code></a></div>
+<div data-id="0,0,0,0,4,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,0:main" href="/fifthtry/ftd/kernel/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Kernel Components</a>
+<div data-id="0,0,0,0,4,2,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,1,0:main" href="/fifthtry/ftd/row/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.row</code></a></div>
+<div data-id="0,0,0,0,4,2,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,2,0:main" href="/fifthtry/ftd/column/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.column</code></a></div>
+<div data-id="0,0,0,0,4,2,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,3,0:main" href="/fifthtry/ftd/text/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.text</code></a></div>
+<div data-id="0,0,0,0,4,2,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,4,0:main" href="/fifthtry/ftd/image/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.image</code></a></div>
+<div data-id="0,0,0,0,4,2,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,5,0:main" href="/fifthtry/ftd/iframe/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.iframe</code></a></div>
+<div data-id="0,0,0,0,4,2,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,6,0:main" href="/fifthtry/ftd/integer/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.integer</code></a></div>
+<div data-id="0,0,0,0,4,2,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,7,0:main" href="/fifthtry/ftd/decimal/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.decimal</code></a></div>
+<div data-id="0,0,0,0,4,2,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,8,0:main" href="/fifthtry/ftd/boolean/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.boolean</code></a></div>
+<div data-id="0,0,0,0,4,2,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,9,0:main" href="/fifthtry/ftd/common/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Common Attributes</a></div>
+<div data-id="0,0,0,0,4,2,10:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,10,0:main" href="/fifthtry/ftd/container/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Attributes</a></div></div>
+<div data-id="0,0,0,0,4,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,3,0:main" href="/fifthtry/ftd/container-management/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Management</a></div>
+<div data-id="0,0,0,0,4,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,4,0:main" href="/fifthtry/ftd/if/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>if</code>: Conditional Components</a></div>
+<div data-id="0,0,0,0,4,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,5,0:main" href="/fifthtry/ftd/if-attr/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Conditional Attributes</a></div>
+<div data-id="0,0,0,0,4,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,6,0:main" href="/fifthtry/ftd/loop/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$loop$</code>: Looping Over Lists</a></div>
+<div data-id="0,0,0,0,4,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,7,0:main" href="/fifthtry/ftd/id/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">ID</a></div>
+<div data-id="0,0,0,0,4,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,8,0:main" href="/fifthtry/ftd/event-handling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$event-&lt;event-name&gt;$</code>: Event Handling</a></div>
+<div data-id="0,0,0,0,4,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,9,0:main" href="/fifthtry/ftd/auto-nesting/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Auto Nesting</a></div></div>
+<div data-id="0,0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,5,0:main" href="/fifthtry/ftd/import/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>import</code></a></div>
+<div data-id="0,0,0,0,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,0:main" href="/fifthtry/ftd/examples/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Examples</a>
+<div data-id="0,0,0,0,6,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,1,0:main" href="/fifthtry/ftd/creating-a-tree/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Creating a tree</a></div></div>
+<div data-id="0,0,0,0,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,7,0:main" href="/fifthtry/ftd/library/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::Library</code></a></div>
+<div data-id="0,0,0,0,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,8,0:main" href="/fifthtry/ftd/comments/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Comments In <code>ftd</code> Files</a></div></div>
+<div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="/fifthtry/ftd/internals/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Internals</a></div>
+<div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="/fifthtry/ftd/run-ftd/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">How to run ftd</a></div>
+<div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="/fifthtry/ftd/p1/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code>: A JSON/YML Replacement</a></div>
+<div data-id="0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,4,0:main" href="/fifthtry/ftd/changelog/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Changelog</a></div>
+<div data-id="0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,5,0:main" href="/fifthtry/ftd/roadmap/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Roadmap &amp; RFCs</a></div></div>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" id="main:main-container" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="how-to-create-a-tree-using-ftd" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-bottom-width: 1px !important; border-color: rgba(206,210,221,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 30px; font-weight: 600; line-height: 30px; padding-bottom: 20px; padding-top: 30px; text-align: left; white-space: initial; width: 100%" class="ft_md">How to create a tree using <code>ftd</code>?</div>
+<div data-id="0,0,1,0,0,0,1:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-top: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>A tree view represents a hierarchical form of items where each item can have
+subitems and so on. In this tutorial, we will learn how to create a tree using
+<code>ftd</code> step by step.</p>
+</div></div></div>
+<div data-id="0,0,1,0,0,1:main-container-external:0:main" id="create-a-component-for-tree" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Create a component for tree</div>
+<div data-id="0,0,1,0,0,1,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Let us create a component that would contain all the items and subitems.
+The component needs to be of <a href="/ftd/column/"><code>column</code></a> type which would stack the
+items vertically.</p>
+</div>
+<div data-id="0,0,1,0,0,1,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,1,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.column:
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,1,3:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,1,3,0:main-container-external:0:main" src="https://i.imgur.com/JDOcj1Q.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,1,3,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 1</div></div>
+<div data-id="0,0,1,0,0,1,4:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>The above code uses <code>ftd.column</code> which is a <a href="/ftd/kernel/">kernel component</a>.
+Now let’s insert an item.</p>
+</div>
+<div data-id="0,0,1,0,0,1,5:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,1,5,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.column:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Beverage
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,1,6:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,1,6,0:main-container-external:0:main" src="https://i.imgur.com/ZXDE7Ap.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,1,6,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 2</div></div>
+<div data-id="0,0,1,0,0,1,7:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Bravo! we have successfully inserted an item with the property <code>name: Beverage</code>.
+You must have noticed that we have called another component with the name <code>item</code> to display this item.
+This component becomes subsection/child of the <code>ftd.column</code> component.
+Before we insert another item, let’s understand how to create the <code>item</code> component first.</p>
+</div></div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" id="create-an-item-component" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Create an <code>item</code> component</div>
+<div data-id="0,0,1,0,0,2,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: true
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,2,3:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,2,3,0:main-container-external:0:main" src="https://i.imgur.com/vAT0h3k.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,2,3,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 3</div></div>
+<div data-id="0,0,1,0,0,2,4:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Let’s understand the above code in detail. As we need to insert subitem inside
+<code>Beverage</code> item and it’s proper to show subitems vertically. So we have created
+<a href="/ftd/component/">component</a> with type column.</p>
+<p>The other important thing to notice here is we have defined <code>open: true</code> which
+would make the component open. (i.e. any element that comes after its call would
+become its child. To understand this better, please check this out
+<a href="/ftd/container-management/">container-management</a>).</p>
+<p>We have also defined an argument <code>$name</code> of type <code>string</code>. So, at the time of
+calling this component, we have to pass an argument <code>name</code> of type <code>string</code>. Now,
+We have to consume this argument to show it in frontend.</p>
+</div>
+<div data-id="0,0,1,0,0,2,5:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,5,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: true
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: $name
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,2,6:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,2,6,0:main-container-external:0:main" src="https://i.imgur.com/4r6uyF1.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,2,6,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 4</div></div>
+<div data-id="0,0,1,0,0,2,7:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Here, we have inserted <a href="/ftd/text/"><code>--- ftd.text: ref $name</code></a> as the
+child/subsection of <code>item</code> component. This has reference to the argument <code>$name</code>.
+Hence consuming it 😊. Before we proceed further let’s call this component and
+see the result.</p>
+</div>
+<div data-id="0,0,1,0,0,2,8:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,8,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- item: 
+</span><span style="color:#c0c5ce;">name: Beverage
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,2,9:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,2,9,0:main-container-external:0:main" src="https://i.imgur.com/zXOsLIz.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,2,9,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 5</div></div>
+<div data-id="0,0,1,0,0,2,10:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Output:</p>
+</div>
+<div data-id="0,0,1,0,0,2,11:main-container-external:0:main" data-spacing="margin-top:20px" style="align-items: flex-start; align-self: flex-start; border-radius: 5px; border-style: solid; border-width: 1px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,11,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,2,11,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Beverage</div></div></div></div>
+<div data-id="0,0,1,0,0,3:main-container-external:0:main" id="add-items-to-the-tree" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Add items to the tree</div>
+<div data-id="0,0,1,0,0,3,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Let’s get back to adding items.
+In this example, we are going to add Water and Juice as children of Bevarage
+and Mango Juice as child of Juice.</p>
+</div>
+<div data-id="0,0,1,0,0,3,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- ftd.column:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Beverage
+</span><span style="color:#c0c5ce;">id: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Water
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- container: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Juice
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Mango Juice
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,3,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>We are almost done now. Let’s understand this in detail. First, we have inserted
+our old pal <code>Beverage</code> and now item <code>Beverage</code> becomes open. (Wait, it’s different than the first time when we have inserted.
+It has a property <code>id: beverage-id</code> but why?? Have patience for answer).</p>
+<p>Cool, after that we have inserted item <code>Water</code> and it becomes child of item <code>Beverage</code>
+and now item <code>Water</code> becomes open. We need to change the open container/component to item <code>Bevarage</code> again.
+In order to achieve this, we have added <code>--- container: beverage-id</code>
+which changes the open container to the one with id <code>beverage-id</code> which is item <code>Beverage</code>.
+(Now, you know why item <code>Beverage</code> has <code>id</code>). After this, we have inserted item <code>Juice</code>,
+and now this becomes an open container. At last, we have inserted item <code>Mango Juice</code>.</p>
+</div>
+<div data-id="0,0,1,0,0,3,4:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,3,4,0:main-container-external:0:main" src="https://i.imgur.com/KoA6Y1l.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,3,4,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 6</div></div>
+<div data-id="0,0,1,0,0,3,5:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,3,5,0:main-container-external:0:main" src="https://i.imgur.com/ULCthFb.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,3,5,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 7</div></div>
+<div data-id="0,0,1,0,0,3,6:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,3,6,0:main-container-external:0:main" src="https://i.imgur.com/ZKKKxwn.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,3,6,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 8</div></div>
+<div data-id="0,0,1,0,0,3,7:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,3,7,0:main-container-external:0:main" src="https://i.imgur.com/nv0v1G6.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,3,7,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 9</div></div>
+<div data-id="0,0,1,0,0,3,8:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; padding-bottom: 20px; white-space: initial; width: 100%" class="ft_md"><img alt="" data-id="0,0,1,0,0,3,8,0:main-container-external:0:main" src="https://i.imgur.com/8DvnnLz.png" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; padding-bottom: 15px; white-space: initial; width: 100%">
+<div data-id="0,0,1,0,0,3,8,1:main-container-external:0:main" style="align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 17px; font-style: italic; font-weight: 400; margin-bottom: auto; margin-top: auto; text-align: left; white-space: initial; width: 100%" class="ft_md">Image 10</div></div></div>
+<div data-id="0,0,1,0,0,4:main-container-external:0:main" id="presenting-tree" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Presenting Tree</div>
+<div data-id="0,0,1,0,0,4,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Let’s combine everything now and see the magic 🪄.</p>
+<p>(Note: I have changed component <code>item</code> a little
+and added a <code>row</code> having two elements of type <code>text</code>. One with ✌️ emoji and the other with reference to the <code>$name</code> argument.)</p>
+</div>
+<div data-id="0,0,1,0,0,4,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: true
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: ✌️
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: $name
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- ftd.column:
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Beverage
+</span><span style="color:#c0c5ce;">id: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Water
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- container: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Juice
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Mango Juice
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,4,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Output</p>
+</div>
+<div data-id="0,0,1,0,0,4,4:main-container-external:0:main" data-spacing="margin-top:20px" style="align-items: flex-start; align-self: flex-start; border-radius: 5px; border-style: solid; border-width: 1px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,4,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="beverage:0,0,1,0,0,4,4,0,0:main-container-external:0:main" id="beverage" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,4,4,0,0,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Beverage</div></div>
+<div data-id="0,0,1,0,0,4,4,0,0,1:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,1,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,1,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,4,4,0,0,1,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Water</div></div></div>
+<div data-id="0,0,1,0,0,4,4,0,0,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,2,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,2,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,4,4,0,0,2,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Juice</div></div>
+<div data-id="0,0,1,0,0,4,4,0,0,2,1:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,2,1,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,4,4,0,0,2,1,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,4,4,0,0,2,1,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Mango Juice</div></div></div></div></div></div></div></div>
+<div data-id="0,0,1,0,0,5:main-container-external:0:main" id="adding-events" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Adding Events</div>
+<div data-id="0,0,1,0,0,5,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>We have learnt how to create a tree. Now, we’ll learn how to make it more interactive.
+As you have guessed, we need to do changes in <code>-- component item:</code>.
+Let us take a quick look at updated version, then we’ll discuss about it line by line.</p>
+</div>
+<div data-id="0,0,1,0,0,5,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: some-child
+</span><span style="color:#c0c5ce;">$visible: true
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">$event-click$: toggle $visible
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: ✌️
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: $name
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- container: ftd.main
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.column:
+</span><span style="color:#c0c5ce;">if: $visible
+</span><span style="color:#c0c5ce;">id: some-child
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,5,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Thankfully, not many changes. phew 😮‍💨!! Let’s take a closer look at changes in component <code>item</code>.</p>
+</div>
+<div data-id="0,0,1,0,0,5,4:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,4,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: some-child
+</span><span style="color:#c0c5ce;">$visible: true
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,5,5:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Here, we have changed the <code>open</code> property value from <code>true</code> to <code>some-child</code>.
+This would make the component <code>item</code> open as earlier, but now elements that come after its call
+would be inserted inside the child/subsection of component <code>item</code> which has <code>id</code> as <code>some-child</code>.
+(If you still have not check out this <a href="/ftd/container-management/">container-management</a> page.
+It’s highly recommended to do it now)</p>
+<p>And what is that child/subsection which has <code>id: some-child</code>? (Remember?? no??
+Check out the above code again.)
+It is a kernel component <code>ftd.column</code>.</p>
+<p>We have declared a local variable <code>@visible</code> of boolean type with default value as <code>true</code>.
+(Why?? All I can say, have patience again.)</p>
+<p>Now, let us focus on changes in subsections. We have added the below two subsections.</p>
+</div>
+<div data-id="0,0,1,0,0,5,6:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,6,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">--- container: ftd.main
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.column:
+</span><span style="color:#c0c5ce;">if: $visible
+</span><span style="color:#c0c5ce;">id: some-child
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,5,7:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>As <code>--- ftd.row:</code> was an open container, we need to change the container to component <code>item</code>
+having type <code>column</code>. This line <code>--- container: ftd.main</code> helps in achieving it.
+The open container becomes <code>-- component item:</code>.</p>
+<p>After this, we have defined another kernel component <code>--- ftd.column:</code>.
+It has a property <code>if: @visible</code> which make this component (and its children) visible,
+only if the condition satisfies, i.e., if local variable <code>@visible</code> is true.</p>
+<p>We need something which changes the value of the local variable <code>@visible</code> to control its
+visibility. As this component <code>--- ftd.column:</code> is the open container for <code>item</code> (How?? Remember it has <code>id: some-child</code>)
+and all subsequent components will be placed inside it, so we can control the visibility
+of all those components.</p>
+<p>FTD has an action <code>toggle</code> which toggles a boolean variable.
+We can attach it with an event <code>click</code>. Check these changes in subsection <code>--- ftd.row:</code> of <code>item</code></p>
+</div>
+<div data-id="0,0,1,0,0,5,8:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,8,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">$event-click$: toggle $visible
+</span></pre>
+</div></div></div>
+<div data-id="0,0,1,0,0,6:main-container-external:0:main" id="presenting-an-interactive-tree" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Presenting an interactive Tree</div>
+<div data-id="0,0,1,0,0,6,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Let’s combine everything now and see more magic 🪄.
+Click on <code>✌️Beverage</code> to see everything else disappears, then click it again, and everything is back.
+Similarly, click on <code>✌️Juice</code> and see <code>✌️Mango Juice</code> disappear. You know how to make it appear again.</p>
+</div>
+<div data-id="0,0,1,0,0,6,2:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; padding-top: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,2,2:main-container-external:0:main" style="align-self: flex-start; background-color: rgba(43,48,59,1); border-bottom-left-radius: 4px !important; border-bottom-right-radius: 4px !important; border-radius: 0px; border-style: solid; border-top-left-radius: 4px !important; border-top-right-radius: 4px !important; border-width: 0px; box-sizing: border-box; color: rgba(77,77,77,1); font-size: 17px; font-weight: 400; line-height: 25px; overflow-x: auto; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; padding-top: 10px; text-align: left; white-space: initial; width: 100%" class="ft_md"><pre style="background-color:#2b303b;"><span style="color:#c0c5ce;">-- component item:
+</span><span style="color:#c0c5ce;">component: ftd.column
+</span><span style="color:#c0c5ce;">string $name:
+</span><span style="color:#c0c5ce;">padding-left: 10
+</span><span style="color:#c0c5ce;">open: some-child
+</span><span style="color:#c0c5ce;">$visible: true
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.row:
+</span><span style="color:#c0c5ce;">$event-click$: toggle $visible
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: ✌️
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.text: $name
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- container: ftd.main
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">--- ftd.column:
+</span><span style="color:#c0c5ce;">if: $visible
+</span><span style="color:#c0c5ce;">id: some-child
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Beverage
+</span><span style="color:#c0c5ce;">id: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Water
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- container: beverage-id
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Juice
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">-- item:
+</span><span style="color:#c0c5ce;">name: Mango Juice
+</span></pre>
+</div></div>
+<div data-id="0,0,1,0,0,6,3:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Output</p>
+</div>
+<div data-id="0,0,1,0,0,6,4:main-container-external:0:main" data-spacing="margin-top:20px" style="align-items: flex-start; align-self: flex-start; border-radius: 5px; border-style: solid; border-width: 1px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="beverage:0,0,1,0,0,6,4,0:main-container-external:0:main" id="beverage" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,0:main-container-external:0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;@visible@0,42,0&quot;,&quot;parameters&quot;:{}}]')" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,6,4,0,0,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Beverage</div></div>
+<div data-id="some-child:0,0,1,0,0,6,4,0,1:main-container-external:0:main" id="beverage:some-child" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" data-id="0,0,1,0,0,6,4,0,1,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,0,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;@visible@0,42,0,0&quot;,&quot;parameters&quot;:{}}]')" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,0,0,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,6,4,0,1,0,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Water</div></div>
+<div data-id="some-child:0,0,1,0,0,6,4,0,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"></div></div>
+<div data-ext-id="main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" data-id="0,0,1,0,0,6,4,0,1,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,1,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;@visible@0,42,0,1&quot;,&quot;parameters&quot;:{}}]')" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,1,0,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,6,4,0,1,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Juice</div></div>
+<div data-id="some-child:0,0,1,0,0,6,4,0,1,1,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" data-id="0,0,1,0,0,6,4,0,1,1,1,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-left: 10px; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,1,1,0,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" onclick="window.ftd.handle_event(event, 'main', '[{&quot;action&quot;:&quot;toggle&quot;,&quot;target&quot;:&quot;@visible@0,42,0,1,0&quot;,&quot;parameters&quot;:{}}]')" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"><div data-id="0,0,1,0,0,6,4,0,1,1,1,0,0,0:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">✌️</div>
+<div data-id="0,0,1,0,0,6,4,0,1,1,1,0,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; font-weight: 400; text-align: left; white-space: initial" class="ft_md">Mango Juice</div></div>
+<div data-id="some-child:0,0,1,0,0,6,4,0,1,1,1,0,1:main-container-external:0.some-child-external:0,0,1,0,0,6,4,0.some-child-external:0,0,1,0,0,6,4,0,1,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial" class="ft_md"></div></div></div></div></div></div></div></div></div></div></div></div></div></div><style>
+@font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
+font-style: light;;
+src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+font-family: Open Sans }</style>
+
+
+    <script>
+        window.ftd.init(
+            "main",
+            JSON.parse(document.getElementById("ftd-data").innerText),
+            JSON.parse(document.getElementById("ftd-external-children").innerText)
+        );
+    </script>
+    </body>
+</html>

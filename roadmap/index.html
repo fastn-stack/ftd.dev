@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><base href="/ftd-dev-en/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>FTD Language</title>
+    <script type="ftd" id="ftd-data">
+        {
+  "@body@0,0": {
+    "value": "Owner: Arpita, Sourabh\n\n- [`datetime` type](/ftd/~/27/)\n- match on or-type\n- optional variable is not added to ftd_data in HTML\n- optional integer variable cannot be passed as reference to ftd.integer\n- [allow `$processor$` on component](/ftd/~/128/)\n- allow `$processor$` on record (CR is almost duplicate of component one)\n- [position simplification](/ftd/~/114/)\n- recursion check\n- `$MOUSE-IN`\n  - semantics: only for the node its applied on\n  - should also be externally available",
+    "dependencies": {}
+  },
+  "@body@0,0,0,1,0": {
+    "value": "Owner: Arpita, Sourabh\n\n- [`datetime` type](/ftd/~/27/)\n- match on or-type\n- optional variable is not added to ftd_data in HTML\n- optional integer variable cannot be passed as reference to ftd.integer\n- [allow `$processor$` on component](/ftd/~/128/)\n- allow `$processor$` on record (CR is almost duplicate of component one)\n- [position simplification](/ftd/~/114/)\n- recursion check\n- `$MOUSE-IN`\n  - semantics: only for the node its applied on\n  - should also be externally available",
+    "dependencies": {
+      "0,0,1,0,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,1": {
+    "value": "- [ftd-markup](/fifthtry/ftd/~/9/)\n- [json constructor](/ftd/~/122/)\n- [data only functions](/fifthtry/ftd/~/80/)\n- [URL Resolver](/ftd/~/118/)\n- p1: [`>` based caption/header continuation](/ftd/~/104/)\n- remaining [conditional attributes](/ftd/~/7/)\n  - text\n- `if` on external children\n- [`ftd.menu`](/ftd~101/menu/) (mostly not needed after position and anchor thing)\n- [p1::`structured header`](/ftd/~/107/)\n- issue: multiple fields with type `caption` allowed (should not be)\n- [better error handling](/ftd/~/10/)\n- [clean external api](/ftd/~/108/)",
+    "dependencies": {}
+  },
+  "@body@0,1,1": {
+    "value": "- [ftd-markup](/fifthtry/ftd/~/9/)\n- [json constructor](/ftd/~/122/)\n- [data only functions](/fifthtry/ftd/~/80/)\n- [URL Resolver](/ftd/~/118/)\n- p1: [`>` based caption/header continuation](/ftd/~/104/)\n- remaining [conditional attributes](/ftd/~/7/)\n  - text\n- `if` on external children\n- [`ftd.menu`](/ftd~101/menu/) (mostly not needed after position and anchor thing)\n- [p1::`structured header`](/ftd/~/107/)\n- issue: multiple fields with type `caption` allowed (should not be)\n- [better error handling](/ftd/~/10/)\n- [clean external api](/ftd/~/108/)",
+    "dependencies": {
+      "0,0,1,0,0,1,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,10": {
+    "value": "- oembed\n- off tree container management?\n- canvas or graphics (rectangle, circle, line, arrow etc primitives)\n- [contrast preserving color calculator](/ftd/~/61/)\n- `line: true` (on `ftd.text` to decide if content is one word or line, eg button\n  text, or paragraph)\n  - if `line: true` and body contains multi para, show error",
+    "dependencies": {}
+  },
+  "@body@0,10,1": {
+    "value": "- oembed\n- off tree container management?\n- canvas or graphics (rectangle, circle, line, arrow etc primitives)\n- [contrast preserving color calculator](/ftd/~/61/)\n- `line: true` (on `ftd.text` to decide if content is one word or line, eg button\n  text, or paragraph)\n  - if `line: true` and body contains multi para, show error",
+    "dependencies": {
+      "0,0,1,0,0,10,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,11": {
+    "value": "- `-- <list-name>: ref x` to add `x` to `<list-name>` if type matches (and no \n  other header or body passed).\n- `if` on list append\n- [`$loop$` over `list`](/fifthtry/ftd/~/28/)\n- partial record update (`$overwrite$`)\n- [named-list](/fifthtry/ftd/~/40/)\n- [caption only record field](/fifthtry/ftd/~/51/)\n- [create string from int](/fifthtry/ftd/~/49/)\n- expressions\n  - list: more than | less than\n- [generic types](/fifthtry/ftd/~/79/)\n- [if for `or-type`](/fifthtry/ftd/~/81/)\n- builtin-processors: json/yml",
+    "dependencies": {}
+  },
+  "@body@0,11,1": {
+    "value": "- `-- <list-name>: ref x` to add `x` to `<list-name>` if type matches (and no \n  other header or body passed).\n- `if` on list append\n- [`$loop$` over `list`](/fifthtry/ftd/~/28/)\n- partial record update (`$overwrite$`)\n- [named-list](/fifthtry/ftd/~/40/)\n- [caption only record field](/fifthtry/ftd/~/51/)\n- [create string from int](/fifthtry/ftd/~/49/)\n- expressions\n  - list: more than | less than\n- [generic types](/fifthtry/ftd/~/79/)\n- [if for `or-type`](/fifthtry/ftd/~/81/)\n- builtin-processors: json/yml",
+    "dependencies": {
+      "0,0,1,0,0,11,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,12": {
+    "value": "- chrome based screenshot\n- native rendering\n- TUI etc based rendering ftd to ansi terminal\n- ftd to pdf generator (ftd 2 [rml](https://www.reportlab.com/docs/rml2pdf-userguide.pdf)?)\n- realm integration\n- editor (click to select item, jump to definition)\n- [ftd-lambda](/fifthtry/ftd/~/25/)",
+    "dependencies": {}
+  },
+  "@body@0,12,1": {
+    "value": "- chrome based screenshot\n- native rendering\n- TUI etc based rendering ftd to ansi terminal\n- ftd to pdf generator (ftd 2 [rml](https://www.reportlab.com/docs/rml2pdf-userguide.pdf)?)\n- realm integration\n- editor (click to select item, jump to definition)\n- [ftd-lambda](/fifthtry/ftd/~/25/)",
+    "dependencies": {
+      "0,0,1,0,0,12,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,2": {
+    "value": "The idea is to create a list of tutorials to show all the possible ui/layout\nthat can be created throught ftd. \n\n- How to create a responsive component in ftd?\n- How to create a sticky header in ftd?\n- How to create a fixed left sidebar in ftd?\n- How to create a static website in 30 mins in ftd?\n- Basic layouts in ftd.",
+    "dependencies": {}
+  },
+  "@body@0,2,1": {
+    "value": "The idea is to create a list of tutorials to show all the possible ui/layout\nthat can be created throught ftd. \n\n- How to create a responsive component in ftd?\n- How to create a sticky header in ftd?\n- How to create a fixed left sidebar in ftd?\n- How to create a static website in 30 mins in ftd?\n- Basic layouts in ftd.",
+    "dependencies": {
+      "0,0,1,0,0,2,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,3": {
+    "value": "- [container header](/ftd/~/116/)\n- color, align etc types (to act as type hint or doc)\n- [enum](/ftd/~/33/)\n- [auto variables: `@child-index` and `@sibling-count`](/fifthtry/ftd/~/73/)\n- [auto variables: `first, last, odd, even`](/fifthtry/ftd/~/102/)\n- issue: [padding issue](/fifthtry/ftd/~/68/)\n- [higher order variable: `integer variable`](/fifthtry/ftd/~/75/)\n- [loop variable](/fifthtry/ftd/~/22/)\n- [argument with default value: on record/or-type](/fifthtry/ftd/~/15/)\n- [ref x -> { x }](/fifthtry/ftd/~/37/)? (no longer doing it, `#x` is better)\n- implement markdown, code highlighting, katex etc using `$processor$`?\n- [test improvements](/fifthtry/ftd/~/29/)\n- [`ftd.grid`](/fifthtry/ftd/~/97/)",
+    "dependencies": {}
+  },
+  "@body@0,3,1": {
+    "value": "- [container header](/ftd/~/116/)\n- color, align etc types (to act as type hint or doc)\n- [enum](/ftd/~/33/)\n- [auto variables: `@child-index` and `@sibling-count`](/fifthtry/ftd/~/73/)\n- [auto variables: `first, last, odd, even`](/fifthtry/ftd/~/102/)\n- issue: [padding issue](/fifthtry/ftd/~/68/)\n- [higher order variable: `integer variable`](/fifthtry/ftd/~/75/)\n- [loop variable](/fifthtry/ftd/~/22/)\n- [argument with default value: on record/or-type](/fifthtry/ftd/~/15/)\n- [ref x -> { x }](/fifthtry/ftd/~/37/)? (no longer doing it, `#x` is better)\n- implement markdown, code highlighting, katex etc using `$processor$`?\n- [test improvements](/fifthtry/ftd/~/29/)\n- [`ftd.grid`](/fifthtry/ftd/~/97/)",
+    "dependencies": {
+      "0,0,1,0,0,3,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,4": {
+    "value": "- [`message-host` event handler](/ftd/~/127/)\n- support basic types in `from_json_row_`\n- [`ui` as a type](/ftd/~/112/) \n- backward incompatible: [unified component/variable syntax](/ftd/~/115/)\n- viewport based length (`width: vh 40` etc)\n- backwards incompatible: [`ftd.text` vs `ftd.text-block`](/ftd/~/113/)\n- `$lool$: $foo as $o` instead of `.. $foo as o`\n- `google-font-url`\n- [everything is `$foo` (against `ftd-0.2` branch)](/ftd/~/105/)\n- remove `ftd.comic` \n- [`@mouse-in`: special variable](/fifthtry/ftd/~/57/)\n- `#foo` global variables (remove `ref`) (and `import: f; #f.foo` not `f.#foo`)\n  - `ftd.boolean`'s value is not changing correctly when variable changes\n  - `ftd.boolean` should accept value in caption\n- `async` rendering (`import` and `$processor$`)\n- `line-clamp`\n- enhancement: [open container with children should be closed](/fifthtry/ftd/~/69/)\n- action: [set value/ref](/fifthtry/ftd/~/67/)\n- [`inherit` type not working](/fifthtry/ftd/~/71/)\n- [absolute positioning](/fifthtry/ftd/~/100/)\n- `ftd.scene`\n- `list is empty` | `list is not empty`\n- sub-section level container management\n- [`evt.stopPropagation()`](/fifthtry/ftd/~/91/)\n- action: [increment / decrement integer](/fifthtry/ftd/~/65/)\n- `ftd.integer`/`.decimal`/`.boolean` should also accept value as `caption`.\n- [`/-` comments](/fifthtry/ftd/~/38/)\n- implement `cursor`\n- if `$event-click$` is set, use `pointer` as default cursor\n- [`if` on var-overwrite/list-append](/fifthtry/ftd/~/35/)\n- [intra page link](/fifthtry/ftd/~/86/)\n- move-{up, down, left, right}\n- example: how to create nested toc with expand collapse behaviour\n- example: how to show a dialog when a button is clicked (click outside)\n- example: image carousal (show a series of images, changing when next/prev are clicked)\n- example: basic counter (increment / decrement)\n- example: tab ui",
+    "dependencies": {}
+  },
+  "@body@0,4,1": {
+    "value": "- [`message-host` event handler](/ftd/~/127/)\n- support basic types in `from_json_row_`\n- [`ui` as a type](/ftd/~/112/) \n- backward incompatible: [unified component/variable syntax](/ftd/~/115/)\n- viewport based length (`width: vh 40` etc)\n- backwards incompatible: [`ftd.text` vs `ftd.text-block`](/ftd/~/113/)\n- `$lool$: $foo as $o` instead of `.. $foo as o`\n- `google-font-url`\n- [everything is `$foo` (against `ftd-0.2` branch)](/ftd/~/105/)\n- remove `ftd.comic` \n- [`@mouse-in`: special variable](/fifthtry/ftd/~/57/)\n- `#foo` global variables (remove `ref`) (and `import: f; #f.foo` not `f.#foo`)\n  - `ftd.boolean`'s value is not changing correctly when variable changes\n  - `ftd.boolean` should accept value in caption\n- `async` rendering (`import` and `$processor$`)\n- `line-clamp`\n- enhancement: [open container with children should be closed](/fifthtry/ftd/~/69/)\n- action: [set value/ref](/fifthtry/ftd/~/67/)\n- [`inherit` type not working](/fifthtry/ftd/~/71/)\n- [absolute positioning](/fifthtry/ftd/~/100/)\n- `ftd.scene`\n- `list is empty` | `list is not empty`\n- sub-section level container management\n- [`evt.stopPropagation()`](/fifthtry/ftd/~/91/)\n- action: [increment / decrement integer](/fifthtry/ftd/~/65/)\n- `ftd.integer`/`.decimal`/`.boolean` should also accept value as `caption`.\n- [`/-` comments](/fifthtry/ftd/~/38/)\n- implement `cursor`\n- if `$event-click$` is set, use `pointer` as default cursor\n- [`if` on var-overwrite/list-append](/fifthtry/ftd/~/35/)\n- [intra page link](/fifthtry/ftd/~/86/)\n- move-{up, down, left, right}\n- example: how to create nested toc with expand collapse behaviour\n- example: how to show a dialog when a button is clicked (click outside)\n- example: image carousal (show a series of images, changing when next/prev are clicked)\n- example: basic counter (increment / decrement)\n- example: tab ui",
+    "dependencies": {
+      "0,0,1,0,0,4,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,5": {
+    "value": "things on which we do not have a clarity on how things should work.\n\n- [font handling](/fifthtry/ftd/~/6/)",
+    "dependencies": {}
+  },
+  "@body@0,5,1": {
+    "value": "things on which we do not have a clarity on how things should work.\n\n- [font handling](/fifthtry/ftd/~/6/)",
+    "dependencies": {
+      "0,0,1,0,0,5,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,6": {
+    "value": "- [line-height does not work when text is in body](/fifthtry/ftd/~/74/)\n- row with single line text and block element do not render correctly\n- how to pass more than one multi-line parameters when calling a component",
+    "dependencies": {}
+  },
+  "@body@0,6,1": {
+    "value": "- [line-height does not work when text is in body](/fifthtry/ftd/~/74/)\n- row with single line text and block element do not render correctly\n- how to pass more than one multi-line parameters when calling a component",
+    "dependencies": {
+      "0,0,1,0,0,6,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,7": {
+    "value": "- show current time\n- hamburger based UI and mobile/desktop optimised ui",
+    "dependencies": {}
+  },
+  "@body@0,7,1": {
+    "value": "- show current time\n- hamburger based UI and mobile/desktop optimised ui",
+    "dependencies": {
+      "0,0,1,0,0,7,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,8": {
+    "value": "- object header eg `border: { top: 20 }`\n- object merge `{ top: 0, left: 0 }`\n- [`$end$` header](/fifthtry/ftd/~/20/)\n- [`if` -> `$if$`](/fifthtry/ftd/~/26/) (not sure)\n- [`$deprecate$`](/fifthtry/ftd/~/34/)\n- [`-- import: foo as _`](/fifthtry/ftd/~/44/)",
+    "dependencies": {}
+  },
+  "@body@0,8,1": {
+    "value": "- object header eg `border: { top: 20 }`\n- object merge `{ top: 0, left: 0 }`\n- [`$end$` header](/fifthtry/ftd/~/20/)\n- [`if` -> `$if$`](/fifthtry/ftd/~/26/) (not sure)\n- [`$deprecate$`](/fifthtry/ftd/~/34/)\n- [`-- import: foo as _`](/fifthtry/ftd/~/44/)",
+    "dependencies": {
+      "0,0,1,0,0,8,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@body@0,9": {
+    "value": "- [action: cycle](/fifthtry/ftd/~/66/)\n- action: input -> variable data binding\n- [in-equality expression](/fifthtry/ftd/~/36/)\n- `$event-escape$`",
+    "dependencies": {}
+  },
+  "@body@0,9,1": {
+    "value": "- [action: cycle](/fifthtry/ftd/~/66/)\n- action: input -> variable data binding\n- [in-equality expression](/fifthtry/ftd/~/36/)\n- `$event-escape$`",
+    "dependencies": {
+      "0,0,1,0,0,9,1:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,0": {
+    "value": "Roadmap & RFCs",
+    "dependencies": {
+      "0,0,1,0,0,0,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,1": {
+    "value": "Post First Release",
+    "dependencies": {
+      "0,0,1,0,0,1,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,10": {
+    "value": "ui",
+    "dependencies": {
+      "0,0,1,0,0,10,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,11": {
+    "value": "data modelling",
+    "dependencies": {
+      "0,0,1,0,0,11,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,12": {
+    "value": "misc",
+    "dependencies": {
+      "0,0,1,0,0,12,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,2": {
+    "value": "FTD tutorial roadmap",
+    "dependencies": {
+      "0,0,1,0,0,2,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,3": {
+    "value": "others",
+    "dependencies": {
+      "0,0,1,0,0,3,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,4": {
+    "value": "implemented but not yet documented",
+    "dependencies": {
+      "0,0,1,0,0,4,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,5": {
+    "value": "open design issues",
+    "dependencies": {
+      "0,0,1,0,0,5,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,6": {
+    "value": "bugs and minor enhancements",
+    "dependencies": {
+      "0,0,1,0,0,6,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,7": {
+    "value": "examples/tutorials",
+    "dependencies": {
+      "0,0,1,0,0,7,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,8": {
+    "value": "basic syntax",
+    "dependencies": {
+      "0,0,1,0,0,8,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "@title@0,9": {
+    "value": "event handling",
+    "dependencies": {
+      "0,0,1,0,0,9,0:main-container-external:0": "[{\"dependency_type\":\"Value\",\"condition\":null,\"parameters\":{}}]"
+    }
+  },
+  "fifthtry.github.io/Flash-theme#base_size": {
+    "value": "18",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#heading_size": {
+    "value": "28",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral": {
+    "value": "#fff",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-200": {
+    "value": "#ced2dd",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-300": {
+    "value": "#F9F9F9",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-400": {
+    "value": "#E1E1E1",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-500": {
+    "value": "#323546",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-600": {
+    "value": "#3E4155",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-700": {
+    "value": "#1C1C24",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#neutral-800": {
+    "value": "#000",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#sub_heading_size": {
+    "value": "22",
+    "dependencies": {}
+  },
+  "fifthtry.github.io/Flash-theme#title_size": {
+    "value": "36",
+    "dependencies": {}
+  }
+}
+    </script>
+    <script type="ftd" id="ftd-external-children">
+        {
+  "main-container-external:0": [
+    {
+      "condition": [
+        "main-container:0,0,1,0"
+      ],
+      "set_at": "main-container:0,0,1,0"
+    }
+  ]
+}
+    </script>
+    <script>
+        // all ftd_utils are meant to be pure functions only: they can only depend on the
+// input passed, not on closures or global data etc
+let ftd_utils = {
+    is_visible: function (id, affected_id) {
+        return (document.querySelector(`[data-id="${affected_id}:${id}"]`).style.display !== "none");
+    },
+
+    box_shadow_value_null: function (value) {
+        return (value === "0px 0px 0px 0px") ? null : value;
+    },
+
+    box_shadow_value: function (parameter, data_id, value) {
+        let current_value  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('box-shadow');
+        if (current_value.length === 0) {
+            current_value = "0px 0px 0px 0px";
+        }
+        let first_split = current_value.split(') ');
+        if (first_split.length === 1) {
+            first_split.unshift('');
+        } else {
+            first_split[0] = `${first_split[0]})`;
+        }
+        if (parameter === "shadow-color") {
+            if (value === null) {
+                return ftd_utils.box_shadow_value_null(first_split[1].trim());
+            }
+            first_split[0] = value;
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        let second_split =  first_split[1].split(' ');
+        if (parameter === "shadow-offset-x") {
+            second_split[0] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-offset-y") {
+            second_split[1] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-blur") {
+            second_split[2] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+        if (parameter === "shadow-size") {
+            second_split[3] = value !== null ? value : '0px' ;
+            first_split[1] = second_split.join(' ');
+            return ftd_utils.box_shadow_value_null(first_split.join(' ').trim());
+        }
+    },
+
+    align_value: function (data_id, value) {
+        let current_position  = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('position');
+        if (current_position === "fixed" || current_position === "absolute") {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%,-50%)');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateY(-50%)');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translate(-50%)');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '50%');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('transform', 'translateX(-50%)');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('top', '0');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('left', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('right', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('bottom', '0');
+            }
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top',null);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left',null);
+            if (value === "center") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+            } else if (value === "left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'center');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "top-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+            } else if (value === "top-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            } else if (value === "bottom-left") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-start');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+            } else if (value === "bottom-right") {
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('align-self', 'flex-end');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-bottom', '0');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-top', 'auto');
+                document.querySelector(`[data-id="${data_id}"]`).style.setProperty('margin-left', 'auto');
+            }
+        }
+
+    },
+
+    line_clamp: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('display', null);
+            doc.style.setProperty('overflow', null);
+            doc.style.setProperty('-webkit-line-clamp', null);
+            doc.style.setProperty('-webkit-box-orient', null);
+        } else {
+            doc.style.setProperty('display', '-webkit-box');
+            doc.style.setProperty('overflow', 'hidden');
+            doc.style.setProperty('-webkit-line-clamp', value);
+            doc.style.setProperty('-webkit-box-orient', 'vertical');
+        }
+    },
+
+    background_image: function (data_id, value) {
+        let background_repeat = document.querySelector(`[data-id="${data_id}"]`).style.getPropertyValue('background-repeat');
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-image', null);
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        } else {
+            doc.style.setProperty('background-image', `url(${value})`);
+            if (background_repeat.length === 0) {
+                doc.style.setProperty('background-size', 'cover');
+                doc.style.setProperty('background-position', 'center');
+            }
+        }
+    },
+
+    background_repeat: function (data_id, value) {
+        let doc = document.querySelector(`[data-id="${data_id}"]`);
+        if (value == null) {
+            doc.style.setProperty('background-repeat', null);
+            doc.style.setProperty('background-size', 'cover');
+            doc.style.setProperty('background-position', 'center');
+        } else {
+            doc.style.setProperty('background-repeat', 'repeat');
+            doc.style.setProperty('background-size', null);
+            doc.style.setProperty('background-position', null);
+        }
+    },
+
+    first_child_styling: function (data_id) {
+        let parent = document.querySelector(`[data-id="${data_id}"]`).parentElement;
+        if (parent.dataset.spacing !== undefined) {
+            let spacing = parent.dataset.spacing.split(":");
+            let property = spacing[0].trim();
+            let value = spacing[1].trim();
+            let first_child = true;
+            for (let i = 0; i < parent.children.length; i++) {
+                if (!first_child) {
+                    parent.children[i].style.setProperty(property, value);
+                } else if (parent.children[i].style.display !== 'none') {
+                    parent.children[i].style.setProperty(property, null);
+                    first_child = false;
+                }
+            }
+        }
+    },
+
+
+    set_style: function (parameter, data_id, value, important) {
+        if (["shadow-offset-x", "shadow-offset-y", "shadow-size", "shadow-blur", "shadow-color"].includes(parameter)) {
+            let box_shadow_value = ftd_utils.box_shadow_value(parameter,data_id, value);
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty('box-shadow', box_shadow_value);
+        } else if (parameter === "align" || parameter === "position") {
+            ftd_utils.align_value(data_id, value);
+        } else if (parameter === "line-clamp") {
+            ftd_utils.line_clamp(data_id, value);
+        } else if (parameter === "background-image") {
+            ftd_utils.background_image(data_id, value);
+        } else if (parameter === "background-repeat") {
+            ftd_utils.background_repeat(data_id, value);
+        } else if (important) {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value, 'important');
+        } else {
+            document.querySelector(`[data-id="${data_id}"]`).style.setProperty(`${parameter}`, value);
+        }
+    },
+
+    handle_action: function (id, target, value, data) {
+        data[target].value = value.toString();
+
+        let dependencies = data[target].dependencies;
+        for (const dependency in dependencies) {
+            if (!dependencies.hasOwnProperty(dependency)) {
+                continue;
+            }
+            let json_dependencies = JSON.parse(dependencies[dependency]);
+            var styles_edited = [];
+            for (const index in json_dependencies) {
+                let json_dependency = json_dependencies[index];
+                if (json_dependency.dependency_type === "Value") {
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).innerText = data[target].value;
+                } else if (json_dependency.dependency_type === "Visible") {
+                    let display = "none";
+                    if (data[target].value === json_dependency.condition) {
+                        let is_flex = document.querySelector(`[data-id="${dependency}:${id}"]`).style.flexDirection.length;
+                        let is_webkit = document.querySelector(`[data-id="${dependency}:${id}"]`).style.webkitLineClamp.length;
+                        if (is_flex) {
+                            display = "flex";
+                        } else if (is_webkit) {
+                            display = "-webkit-box";
+                        } else {
+                            display = "block";
+                        }
+                    }
+                    document.querySelector(`[data-id="${dependency}:${id}"]`).style.display = display;
+                    ftd_utils.first_child_styling(`${dependency}:${id}`);
+
+                } else if (json_dependency.dependency_type === "Style") {
+                    if (data[target].value === json_dependency.condition) {
+                        for (const parameter in json_dependency.parameters) {
+                            let value = json_dependency.parameters[`${parameter}`].value.value;
+                            let important = json_dependency.parameters[`${parameter}`].value.important;
+                            ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                            if (!styles_edited.includes(parameter)) {
+                                styles_edited.push(parameter);
+                            }
+                        }
+                    } else {
+                        for (const parameter in json_dependency.parameters) {
+                            let default_value = json_dependency.parameters[`${parameter}`].default;
+                            if (!styles_edited.includes(parameter)) {
+                                if (default_value === null) {
+                                    if (["border-left-width", "border-right-width", "border-top-width", "border-bottom-width"].includes(parameter)) {
+                                        default_value = "0px";
+                                        document.querySelector(`[data-id="${dependency}:${id}"]`).style[`${parameter}`] = default_value;
+                                    } else {
+                                        ftd_utils.set_style(parameter, `${dependency}:${id}`, default_value, false);
+                                    }
+                                } else {
+                                    let value = default_value.value;
+                                    let important = default_value.important;
+                                    ftd_utils.set_style(parameter, `${dependency}:${id}`, value, important);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+window.ftd = (function () {
+    let ftd_data = {};
+    let ftd_external_children = {};
+
+    function external_children_replace(id) {
+        let external_children = ftd_external_children[id];
+        for (const object in external_children) {
+            if (!external_children.hasOwnProperty(object)) {
+                continue;
+            }
+
+            let conditions = external_children[object];
+            for (const idx in conditions) {
+                if (!conditions.hasOwnProperty(idx)) {
+                    continue;
+                }
+
+                let condition = conditions[idx].condition;
+                let set_at = conditions[idx].set_at;
+                let display = true;
+                for (const i in condition) {
+                    if (!condition.hasOwnProperty(i)) {
+                        continue;
+                    }
+
+                    display &= ftd_utils.is_visible(id, conditions[idx].condition[i])
+                    if (!display) {
+                        break;
+                    }
+                }
+                if (display) {
+                    console.log(`${object}::: ${set_at}`);
+                    let get_element_set_at = document.querySelector(`[data-id="${set_at}:${id}"]`);
+                    let objects_to_set = document.querySelectorAll(`[data-ext-id="${object}:${id}"]`);
+                    for (let i = 0; i < objects_to_set.length; i++) {
+                        let object_to_set = objects_to_set[i];
+                        let parent = object_to_set.parentElement;
+                        if (parent !== get_element_set_at) {
+                            get_element_set_at.appendChild(object_to_set);
+                        }
+                    }
+                    return;
+                }
+            }
+
+        }
+    }
+
+    function handle_event(evt, id, action) {
+        let act = action["action"];
+        let data = ftd_data[id];
+        if (act === "stop-propagation") {
+            evt.stopPropagation();
+        } else if (act === "prevent-default") {
+            evt.preventDefault();
+        } else if (act === "toggle") {
+            let target = action["target"];
+            exports.set_bool(id, target, data[target].value !== 'true');
+        } else if (act === "message-host") {
+            let target = action["target"].trim();
+            window[target]();
+        } else if (act === "increment") {
+            let target = action["target"];
+            let increment = 1;
+            if (action["parameters"].by !== undefined) {
+                increment = parseInt(action["parameters"].by[0]);
+            }
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+            exports.increment_decrement_value(id, target, increment, clamp_min, clamp_max);
+
+        } else if (act === "decrement") {
+            let target = action["target"];
+            let decrement = -1;
+            if (action["parameters"].by !== undefined) {
+                decrement = -parseInt(action["parameters"].by[0]);
+            }
+
+            let clamp_max = undefined;
+            let clamp_min = undefined;
+            if (action["parameters"]["clamp"] !== undefined) {
+                let clamp_value = action["parameters"]["clamp"];
+                if (clamp_value.length === 1) {
+                    clamp_max = parseInt(clamp_value[0]);
+                }
+                if (clamp_value.length === 2) {
+                    clamp_min = parseInt(clamp_value[0]);
+                    clamp_max = parseInt(clamp_value[1]);
+                }
+            }
+
+            exports.increment_decrement_value(id, target, decrement, clamp_min, clamp_max);
+        } else if (act === "set-value") {
+            let target = action["target"];
+            let value = action["parameters"].value[0];
+            if (action["parameters"].value[1] === "integer") {
+                value = parseInt(value);
+            } else if (action["parameters"].value[1] === "decimal") {
+                value = parseFloat(value);
+            } else if (action["parameters"].value[1] === "boolean") {
+                value = (value === "true");
+            }
+
+            let data = ftd_data[id];
+            ftd_utils.handle_action(id, target, value, data);
+
+        } else {
+            console.log("unknown action:", act);
+            return;
+        }
+        external_children_replace(id);
+
+    }
+
+    let exports = {};
+
+    exports.handle_event = function (evt, id, event) {
+        console.log(id, event);
+        let actions = JSON.parse(event);
+        for (const action in actions) {
+            handle_event(evt, id, actions[action])
+        }
+    }
+
+    exports.increment_decrement_value = function (id, variable, increment_by, clamp_min, clamp_max) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        let value = parseInt(data[variable].value);
+        value += increment_by;
+
+        if (clamp_max !== undefined) {
+            let min = (clamp_min === undefined) ? 0: clamp_min
+            if (clamp_max < value) {
+                value = min;
+            }
+            if (clamp_min > value) {
+                value = clamp_max;
+            }
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_bool = function (id, variable, value) {
+        let data = ftd_data[id];
+
+        if (!data[variable]) {
+            console.log(variable, "is not in data, ignoring");
+            return;
+        }
+
+        ftd_utils.handle_action(id, variable, value, data);
+    }
+
+    exports.set_multi_value = function (id, list) {
+        for (const idx in list) {
+            if (!list.hasOwnProperty(idx)) {
+                continue;
+            }
+
+            let item = list[idx];
+            let [variable, value] = item;
+            this.set_bool(id, variable, value);
+        }
+    }
+
+    exports.init = function (id, data, external_children) {
+        ftd_data[id] = data;
+        ftd_external_children[id] = external_children;
+    }
+
+    return exports;
+})();
+
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+        pre {
+            white-space: break-spaces;
+        }
+
+        pre code {
+            overflow-x: auto;
+            display: block;
+            padding: 10px !important;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .ft_md ul,
+        .ft_md ol,
+        .ft_md p {
+            margin: 10px 0;
+        }
+
+        .ft_md h1,
+        .ft_md h2,
+        .ft_md h3,
+        .ft_md h4,
+        .ft_md h5 {
+            margin-top: 34px;
+            margin-bottom: 0;
+            line-height: 1.2em;
+            color: #000000;
+        }
+
+        .ft_md ul ul,
+        .ft_md ul ol,
+        .ft_md ol ul,
+        .ft_md ol ol {
+            line-height: 1.5em;
+            margin: 0;
+        }
+
+        .ft_md ul li,
+        .ft_md ol li,
+        .ft_md ul ol li .ft_md ul ul li .ft_md ol ul li .ft_md ol ol li {
+            position: relative;
+            padding-left: 32px;
+            margin: 4px 0;
+        }
+
+        .ft_md ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ft_md ol {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: item;
+        }
+
+        .ft_md ol li:before,
+        .ft_md ol ol li:before,
+        .ft_md ul ol li:before {
+            content: counter(item);
+            counter-increment: item;
+            background-color: #e4e9eb;
+            color: #000000;
+            font-size: 11px;
+            line-height: 10px;
+            text-align: center;
+            padding: 4px 0;
+            height: 10px;
+            width: 18px;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .ft_md ul li::before,
+        .ft_md ul ul li::before,
+        .ft_md ol ul li::before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left: 8px;
+            top: 10px;
+            border-radius: 50%;
+            background: #c1c8ce;
+        }
+
+        .ft_md a {
+            color: #0047b4;
+            text-decoration: none;
+        }
+
+        .ft_md a:visited {
+            color: #632ec4;
+        }
+
+        .ft_md a:hover {
+            text-decoration: none;
+        }
+
+        .ft_md code {
+            font-size: 0.9em;
+            padding: 0.1em 0.25em;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .ft_md blockquote {
+            padding: 0.25em 1em;
+            margin: 1em 0;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .ft_md blockquote>blockquote {
+            margin: 0;
+        }
+
+        </style>
+
+</head>
+    <body>
+
+        <div data-id="main:root" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: wrap; height: 100%; justify-content: flex-start; margin-bottom: auto; margin-top: auto; white-space: initial; width: 100%" class="ft_md"><div data-id="0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="main-row:0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-color: rgba(235,237,239,1); border-radius: 0px; border-right-width: 1px !important; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: calc(100vh - 0px); justify-content: flex-start; overflow-y: auto; padding-bottom: 40px; padding-left: 10px; padding-right: 20px; padding-top: 15px; position: sticky; top: 0px; white-space: initial; width: 300px" class="ft_md"><div data-id="0,0,0,0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,0:main" href="/fifthtry/ftd/language/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">FTD Language</a>
+<div data-id="0,0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,1,0:main" href="/fifthtry/ftd/p1-grammar/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code> grammar</a></div>
+<div data-id="0,0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,2,0:main" href="/fifthtry/ftd/philosophy/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Philosophy</a></div>
+<div data-id="0,0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,0:main" href="/fifthtry/ftd/data-modelling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Data Modelling</a>
+<div data-id="0,0,0,0,3,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,1,0:main" href="/fifthtry/ftd/variables/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Variables</a></div>
+<div data-id="0,0,0,0,3,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,2,0:main" href="/fifthtry/ftd/built-in-types/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Built-in Types</a></div>
+<div data-id="0,0,0,0,3,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,3,0:main" href="/fifthtry/ftd/record/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>record</code></a></div>
+<div data-id="0,0,0,0,3,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,4,0:main" href="/fifthtry/ftd/or-type/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>or-type</code></a></div>
+<div data-id="0,0,0,0,3,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,5,0:main" href="/fifthtry/ftd/list/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>list</code></a></div>
+<div data-id="0,0,0,0,3,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,3,6,0:main" href="/fifthtry/ftd/reading-data/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Reading FTD Files</a></div></div>
+<div data-id="0,0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,0:main" href="/fifthtry/ftd/ui/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">UI</a>
+<div data-id="0,0,0,0,4,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,1,0:main" href="/fifthtry/ftd/component/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>component</code></a></div>
+<div data-id="0,0,0,0,4,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,0:main" href="/fifthtry/ftd/kernel/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Kernel Components</a>
+<div data-id="0,0,0,0,4,2,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,1,0:main" href="/fifthtry/ftd/row/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.row</code></a></div>
+<div data-id="0,0,0,0,4,2,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,2,0:main" href="/fifthtry/ftd/column/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.column</code></a></div>
+<div data-id="0,0,0,0,4,2,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,3,0:main" href="/fifthtry/ftd/text/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.text</code></a></div>
+<div data-id="0,0,0,0,4,2,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,4,0:main" href="/fifthtry/ftd/image/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.image</code></a></div>
+<div data-id="0,0,0,0,4,2,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,5,0:main" href="/fifthtry/ftd/iframe/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.iframe</code></a></div>
+<div data-id="0,0,0,0,4,2,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,6,0:main" href="/fifthtry/ftd/integer/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.integer</code></a></div>
+<div data-id="0,0,0,0,4,2,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,7,0:main" href="/fifthtry/ftd/decimal/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.decimal</code></a></div>
+<div data-id="0,0,0,0,4,2,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,8,0:main" href="/fifthtry/ftd/boolean/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd.boolean</code></a></div>
+<div data-id="0,0,0,0,4,2,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,9,0:main" href="/fifthtry/ftd/common/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Common Attributes</a></div>
+<div data-id="0,0,0,0,4,2,10:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,2,10,0:main" href="/fifthtry/ftd/container/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Attributes</a></div></div>
+<div data-id="0,0,0,0,4,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,3,0:main" href="/fifthtry/ftd/container-management/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Container Management</a></div>
+<div data-id="0,0,0,0,4,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,4,0:main" href="/fifthtry/ftd/if/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>if</code>: Conditional Components</a></div>
+<div data-id="0,0,0,0,4,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,5,0:main" href="/fifthtry/ftd/if-attr/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Conditional Attributes</a></div>
+<div data-id="0,0,0,0,4,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,6,0:main" href="/fifthtry/ftd/loop/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$loop$</code>: Looping Over Lists</a></div>
+<div data-id="0,0,0,0,4,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,7,0:main" href="/fifthtry/ftd/id/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">ID</a></div>
+<div data-id="0,0,0,0,4,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,8,0:main" href="/fifthtry/ftd/event-handling/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>$event-&lt;event-name&gt;$</code>: Event Handling</a></div>
+<div data-id="0,0,0,0,4,9:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,4,9,0:main" href="/fifthtry/ftd/auto-nesting/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Auto Nesting</a></div></div>
+<div data-id="0,0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,5,0:main" href="/fifthtry/ftd/import/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>import</code></a></div>
+<div data-id="0,0,0,0,6:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,0:main" href="/fifthtry/ftd/examples/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Examples</a>
+<div data-id="0,0,0,0,6,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,6,1,0:main" href="/fifthtry/ftd/creating-a-tree/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Creating a tree</a></div></div>
+<div data-id="0,0,0,0,7:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,7,0:main" href="/fifthtry/ftd/library/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::Library</code></a></div>
+<div data-id="0,0,0,0,8:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,0,8,0:main" href="/fifthtry/ftd/comments/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Comments In <code>ftd</code> Files</a></div></div>
+<div data-id="0,0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,1,0:main" href="/fifthtry/ftd/internals/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Internals</a></div>
+<div data-id="0,0,0,2:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,2,0:main" href="/fifthtry/ftd/run-ftd/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">How to run ftd</a></div>
+<div data-id="0,0,0,3:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,3,0:main" href="/fifthtry/ftd/p1/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md"><code>ftd::p1</code>: A JSON/YML Replacement</a></div>
+<div data-id="0,0,0,4:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,4,0:main" href="/fifthtry/ftd/changelog/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Changelog</a></div>
+<div data-id="0,0,0,5:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 2px; padding-left: 10px; padding-top: 2px; white-space: initial" class="ft_md"><a data-id="0,0,0,5,0:main" href="/fifthtry/ftd/roadmap/" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); cursor: pointer; font-family: Open sans; font-size: 14px; font-weight: 400; line-height: 20px; min-width: fit-content; padding-bottom: 3px; padding-left: 10px; padding-top: 3px; text-align: left; white-space: initial" class="ft_md">Roadmap &amp; RFCs</a></div></div>
+<div data-id="0,0,1:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; height: 100%; justify-content: flex-start; max-width: 900px; white-space: initial; width: 100%" class="ft_md"><div data-id="main-container:0,0,1,0:main" style="align-items: flex-start; align-self: center; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: auto; max-width: 700px; white-space: initial" class="ft_md"><div data-ext-id="main-container-external:0:main" data-id="0,0,1,0,0:main-container-external:0:main" id="roadmap-rfcs" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,0:main-container-external:0:main" style="align-self: flex-start; border-bottom-width: 1px !important; border-color: rgba(206,210,221,1); border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 30px; font-weight: 600; line-height: 30px; padding-bottom: 20px; padding-top: 30px; text-align: left; white-space: initial; width: 100%" class="ft_md">Roadmap &amp; RFCs</div>
+<div data-id="0,0,1,0,0,0,1:main-container-external:0:main" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-top: 10px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>Owner: Arpita, Sourabh</p>
+<ul>
+<li><a href="/ftd/~/27/"><code>datetime</code> type</a></li>
+<li>match on or-type</li>
+<li>optional variable is not added to ftd_data in HTML</li>
+<li>optional integer variable cannot be passed as reference to ftd.integer</li>
+<li><a href="/ftd/~/128/">allow <code>$processor$</code> on component</a></li>
+<li>allow <code>$processor$</code> on record (CR is almost duplicate of component one)</li>
+<li><a href="/ftd/~/114/">position simplification</a></li>
+<li>recursion check</li>
+<li><code>$MOUSE-IN</code>
+<ul>
+<li>semantics: only for the node its applied on</li>
+<li>should also be externally available</li>
+</ul>
+</li>
+</ul>
+</div></div></div>
+<div data-id="0,0,1,0,0,1:main-container-external:0:main" id="post-first-release" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,1,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">Post First Release</div>
+<div data-id="0,0,1,0,0,1,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><a href="/fifthtry/ftd/~/9/">ftd-markup</a></li>
+<li><a href="/ftd/~/122/">json constructor</a></li>
+<li><a href="/fifthtry/ftd/~/80/">data only functions</a></li>
+<li><a href="/ftd/~/118/">URL Resolver</a></li>
+<li>p1: <a href="/ftd/~/104/"><code>&gt;</code> based caption/header continuation</a></li>
+<li>remaining <a href="/ftd/~/7/">conditional attributes</a>
+<ul>
+<li>text</li>
+</ul>
+</li>
+<li><code>if</code> on external children</li>
+<li><a href="/ftd~101/menu/"><code>ftd.menu</code></a> (mostly not needed after position and anchor thing)</li>
+<li><a href="/ftd/~/107/">p1::<code>structured header</code></a></li>
+<li>issue: multiple fields with type <code>caption</code> allowed (should not be)</li>
+<li><a href="/ftd/~/10/">better error handling</a></li>
+<li><a href="/ftd/~/108/">clean external api</a></li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,2:main-container-external:0:main" id="ftd-tutorial-roadmap" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,2,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">FTD tutorial roadmap</div>
+<div data-id="0,0,1,0,0,2,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>The idea is to create a list of tutorials to show all the possible ui/layout
+that can be created throught ftd.</p>
+<ul>
+<li>How to create a responsive component in ftd?</li>
+<li>How to create a sticky header in ftd?</li>
+<li>How to create a fixed left sidebar in ftd?</li>
+<li>How to create a static website in 30 mins in ftd?</li>
+<li>Basic layouts in ftd.</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,3:main-container-external:0:main" id="others" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,3,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">others</div>
+<div data-id="0,0,1,0,0,3,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><a href="/ftd/~/116/">container header</a></li>
+<li>color, align etc types (to act as type hint or doc)</li>
+<li><a href="/ftd/~/33/">enum</a></li>
+<li><a href="/fifthtry/ftd/~/73/">auto variables: <code>@child-index</code> and <code>@sibling-count</code></a></li>
+<li><a href="/fifthtry/ftd/~/102/">auto variables: <code>first, last, odd, even</code></a></li>
+<li>issue: <a href="/fifthtry/ftd/~/68/">padding issue</a></li>
+<li><a href="/fifthtry/ftd/~/75/">higher order variable: <code>integer variable</code></a></li>
+<li><a href="/fifthtry/ftd/~/22/">loop variable</a></li>
+<li><a href="/fifthtry/ftd/~/15/">argument with default value: on record/or-type</a></li>
+<li><a href="/fifthtry/ftd/~/37/">ref x -&gt; { x }</a>? (no longer doing it, <code>#x</code> is better)</li>
+<li>implement markdown, code highlighting, katex etc using <code>$processor$</code>?</li>
+<li><a href="/fifthtry/ftd/~/29/">test improvements</a></li>
+<li><a href="/fifthtry/ftd/~/97/"><code>ftd.grid</code></a></li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,4:main-container-external:0:main" id="implemented-but-not-yet-documented" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,4,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">implemented but not yet documented</div>
+<div data-id="0,0,1,0,0,4,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><a href="/ftd/~/127/"><code>message-host</code> event handler</a></li>
+<li>support basic types in <code>from_json_row_</code></li>
+<li><a href="/ftd/~/112/"><code>ui</code> as a type</a></li>
+<li>backward incompatible: <a href="/ftd/~/115/">unified component/variable syntax</a></li>
+<li>viewport based length (<code>width: vh 40</code> etc)</li>
+<li>backwards incompatible: <a href="/ftd/~/113/"><code>ftd.text</code> vs <code>ftd.text-block</code></a></li>
+<li><code>$lool$: $foo as $o</code> instead of <code>.. $foo as o</code></li>
+<li><code>google-font-url</code></li>
+<li><a href="/ftd/~/105/">everything is <code>$foo</code> (against <code>ftd-0.2</code> branch)</a></li>
+<li>remove <code>ftd.comic</code></li>
+<li><a href="/fifthtry/ftd/~/57/"><code>@mouse-in</code>: special variable</a></li>
+<li><code>#foo</code> global variables (remove <code>ref</code>) (and <code>import: f; #f.foo</code> not <code>f.#foo</code>)
+<ul>
+<li><code>ftd.boolean</code>’s value is not changing correctly when variable changes</li>
+<li><code>ftd.boolean</code> should accept value in caption</li>
+</ul>
+</li>
+<li><code>async</code> rendering (<code>import</code> and <code>$processor$</code>)</li>
+<li><code>line-clamp</code></li>
+<li>enhancement: <a href="/fifthtry/ftd/~/69/">open container with children should be closed</a></li>
+<li>action: <a href="/fifthtry/ftd/~/67/">set value/ref</a></li>
+<li><a href="/fifthtry/ftd/~/71/"><code>inherit</code> type not working</a></li>
+<li><a href="/fifthtry/ftd/~/100/">absolute positioning</a></li>
+<li><code>ftd.scene</code></li>
+<li><code>list is empty</code> | <code>list is not empty</code></li>
+<li>sub-section level container management</li>
+<li><a href="/fifthtry/ftd/~/91/"><code>evt.stopPropagation()</code></a></li>
+<li>action: <a href="/fifthtry/ftd/~/65/">increment / decrement integer</a></li>
+<li><code>ftd.integer</code>/<code>.decimal</code>/<code>.boolean</code> should also accept value as <code>caption</code>.</li>
+<li><a href="/fifthtry/ftd/~/38/"><code>/-</code> comments</a></li>
+<li>implement <code>cursor</code></li>
+<li>if <code>$event-click$</code> is set, use <code>pointer</code> as default cursor</li>
+<li><a href="/fifthtry/ftd/~/35/"><code>if</code> on var-overwrite/list-append</a></li>
+<li><a href="/fifthtry/ftd/~/86/">intra page link</a></li>
+<li>move-{up, down, left, right}</li>
+<li>example: how to create nested toc with expand collapse behaviour</li>
+<li>example: how to show a dialog when a button is clicked (click outside)</li>
+<li>example: image carousal (show a series of images, changing when next/prev are clicked)</li>
+<li>example: basic counter (increment / decrement)</li>
+<li>example: tab ui</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,5:main-container-external:0:main" id="open-design-issues" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,5,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">open design issues</div>
+<div data-id="0,0,1,0,0,5,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><p>things on which we do not have a clarity on how things should work.</p>
+<ul>
+<li><a href="/fifthtry/ftd/~/6/">font handling</a></li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,6:main-container-external:0:main" id="bugs-and-minor-enhancements" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,6,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">bugs and minor enhancements</div>
+<div data-id="0,0,1,0,0,6,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><a href="/fifthtry/ftd/~/74/">line-height does not work when text is in body</a></li>
+<li>row with single line text and block element do not render correctly</li>
+<li>how to pass more than one multi-line parameters when calling a component</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,7:main-container-external:0:main" id="examples-tutorials" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,7,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">examples/tutorials</div>
+<div data-id="0,0,1,0,0,7,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li>show current time</li>
+<li>hamburger based UI and mobile/desktop optimised ui</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,8:main-container-external:0:main" id="basic-syntax" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,8,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">basic syntax</div>
+<div data-id="0,0,1,0,0,8,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li>object header eg <code>border: { top: 20 }</code></li>
+<li>object merge <code>{ top: 0, left: 0 }</code></li>
+<li><a href="/fifthtry/ftd/~/20/"><code>$end$</code> header</a></li>
+<li><a href="/fifthtry/ftd/~/26/"><code>if</code> -&gt; <code>$if$</code></a> (not sure)</li>
+<li><a href="/fifthtry/ftd/~/34/"><code>$deprecate$</code></a></li>
+<li><a href="/fifthtry/ftd/~/44/"><code>-- import: foo as _</code></a></li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,9:main-container-external:0:main" id="event-handling" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,9,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">event handling</div>
+<div data-id="0,0,1,0,0,9,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><a href="/fifthtry/ftd/~/66/">action: cycle</a></li>
+<li>action: input -&gt; variable data binding</li>
+<li><a href="/fifthtry/ftd/~/36/">in-equality expression</a></li>
+<li><code>$event-escape$</code></li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,10:main-container-external:0:main" id="ui" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,10,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">ui</div>
+<div data-id="0,0,1,0,0,10,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li>oembed</li>
+<li>off tree container management?</li>
+<li>canvas or graphics (rectangle, circle, line, arrow etc primitives)</li>
+<li><a href="/ftd/~/61/">contrast preserving color calculator</a></li>
+<li><code>line: true</code> (on <code>ftd.text</code> to decide if content is one word or line, eg button
+text, or paragraph)
+<ul>
+<li>if <code>line: true</code> and body contains multi para, show error</li>
+</ul>
+</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,11:main-container-external:0:main" id="data-modelling" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,11,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">data modelling</div>
+<div data-id="0,0,1,0,0,11,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li><code>-- &lt;list-name&gt;: ref x</code> to add <code>x</code> to <code>&lt;list-name&gt;</code> if type matches (and no
+other header or body passed).</li>
+<li><code>if</code> on list append</li>
+<li><a href="/fifthtry/ftd/~/28/"><code>$loop$</code> over <code>list</code></a></li>
+<li>partial record update (<code>$overwrite$</code>)</li>
+<li><a href="/fifthtry/ftd/~/40/">named-list</a></li>
+<li><a href="/fifthtry/ftd/~/51/">caption only record field</a></li>
+<li><a href="/fifthtry/ftd/~/49/">create string from int</a></li>
+<li>expressions
+<ul>
+<li>list: more than | less than</li>
+</ul>
+</li>
+<li><a href="/fifthtry/ftd/~/79/">generic types</a></li>
+<li><a href="/fifthtry/ftd/~/81/">if for <code>or-type</code></a></li>
+<li>builtin-processors: json/yml</li>
+</ul>
+</div></div>
+<div data-id="0,0,1,0,0,12:main-container-external:0:main" id="misc" style="align-items: flex-start; align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; padding-bottom: 12px; white-space: initial; width: 100%" class="ft_md"><div data-id="0,0,1,0,0,12,0:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(0,0,0,1); font-family: Open sans; font-size: 24px; font-weight: 700; line-height: 24px; padding-bottom: 8px; padding-top: 16px; text-align: left; white-space: initial" class="ft_md">misc</div>
+<div data-id="0,0,1,0,0,12,1:main-container-external:0:main" style="align-self: flex-start; border-radius: 0px; border-style: solid; border-width: 0px; box-sizing: border-box; color: rgba(28,28,36,1); font-family: Open sans; font-size: 15px; font-weight: 400; line-height: 24px; padding-bottom: 8px; text-align: left; white-space: initial" class="ft_md"><ul>
+<li>chrome based screenshot</li>
+<li>native rendering</li>
+<li>TUI etc based rendering ftd to ansi terminal</li>
+<li>ftd to pdf generator (ftd 2 <a href="https://www.reportlab.com/docs/rml2pdf-userguide.pdf">rml</a>?)</li>
+<li>realm integration</li>
+<li>editor (click to select item, jump to definition)</li>
+<li><a href="/fifthtry/ftd/~/25/">ftd-lambda</a></li>
+</ul>
+</div></div></div></div></div></div></div></div><style>
+@font-face { unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;;
+font-style: light;;
+src: url(https://fonts.gstatic.com/s/opensans/v27/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+font-family: Open Sans }</style>
+
+
+    <script>
+        window.ftd.init(
+            "main",
+            JSON.parse(document.getElementById("ftd-data").innerText),
+            JSON.parse(document.getElementById("ftd-external-children").innerText)
+        );
+    </script>
+    </body>
+</html>
