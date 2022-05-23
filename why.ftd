@@ -1,4 +1,7 @@
 -- ft.page: Why FTD
+toc: $config.why-toc
+sub-sections: $config.why-header
+
 
 
 -- ft.h1: FTD Is Easy To Learn

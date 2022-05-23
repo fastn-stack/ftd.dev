@@ -1,4 +1,10 @@
+
 -- ft.page: Data Modelling With `ftd`
+
+-- ft.page: Data Modeling With `ftd`
+toc: $config.data-toc
+sub-sections: $config.doc-header
+
 
 -- ft.markdown: 
 

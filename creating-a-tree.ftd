@@ -2,6 +2,7 @@
 -- import: fpm
 
 -- ft.page: How to create a tree using `ftd`?
+toc: $config.examples-toc
 id: main
 
 

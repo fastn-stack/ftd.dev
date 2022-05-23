@@ -1,4 +1,7 @@
 -- ft.page: Kernel Components
+toc: $config.api-toc
+sub-sections: $config.doc-header
+
     
 -- ft.markdown: 
 

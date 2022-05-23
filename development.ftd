@@ -1,4 +1,7 @@
 -- ft.page: `ftd` Development
+toc: $config.dev-toc
+sub-sections: $config.doc-header
+
 
 
 -- ft.markdown: 

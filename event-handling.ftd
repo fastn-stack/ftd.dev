@@ -1,4 +1,7 @@
 -- ft.page: Event Handling
+toc: $config.api-toc
+sub-sections: $config.doc-header
+
 
 
 -- ft.markdown: 

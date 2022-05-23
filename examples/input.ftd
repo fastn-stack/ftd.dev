@@ -1,6 +1,7 @@
 -- import: fpm
 
 -- ft.page: Input Example
+toc: $config.examples-toc
 
 
 -- ft.markdown: 

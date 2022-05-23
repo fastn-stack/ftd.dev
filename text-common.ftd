@@ -1,3 +1,6 @@
 -- ft.page: Common Text Attributes
+toc: $config.api-toc
+sub-sections: $config.doc-header
+
 
 

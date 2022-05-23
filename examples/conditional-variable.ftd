@@ -1,6 +1,7 @@
 -- import: fpm
 
 -- ft.page: Conditional Variable
+toc: $config.examples-toc
 
 -- boolean ayushi: false
 

@@ -1,6 +1,9 @@
 /-- ft-core.concept:
 
 -- ft.page: `or-type`
+toc: $config.data-toc
+sub-sections: $config.doc-header
+
     
 -- ft.markdown: 
 

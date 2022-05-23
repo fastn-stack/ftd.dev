@@ -1,4 +1,7 @@
 -- ft.page: FTD News
+toc: $config.news-toc
+sub-sections: $config.news-header
+
 
 
 -- ft.markdown: 

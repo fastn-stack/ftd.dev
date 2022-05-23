@@ -1,6 +1,8 @@
 -- import: fpm
 
 -- ft.page: Grid Layout
+toc: $config.examples-toc
+
 
 
 -- boolean mobile: false

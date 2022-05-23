@@ -1,3 +1,5 @@
 -- ft.page: `import`
+toc: $config.doc-toc
+sub-sections: $config.doc-header
 
 

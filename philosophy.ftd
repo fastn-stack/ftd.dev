@@ -2,6 +2,9 @@
 
 
 -- ft.page: Philosophy Behind `ftd`
+toc: $config.why-toc
+sub-sections: $config.why-header
+
 
 
 -- ft.markdown: 

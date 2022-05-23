@@ -1,2 +1,5 @@
 -- ft.page: Enums
+toc: $config.data-toc
+sub-sections: $config.doc-header
+
 

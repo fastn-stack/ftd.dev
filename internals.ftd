@@ -1,4 +1,7 @@
 -- ft.page: Internals
+toc: $config.dev-toc
+sub-sections: $config.doc-header
+
 
 
 -- ft.h1: FTD Original Source Location

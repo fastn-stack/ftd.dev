@@ -1,2 +1,14 @@
 -- ft.page: Input
+toc: $config.ui-toc
+sub-sections: $config.doc-header
+
     
+-- ft.markdown:
+
+Renders a input field.
+
+
+-- ftd.code:
+lang: ftd
+
+

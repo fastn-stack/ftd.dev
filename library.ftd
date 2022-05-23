@@ -1,2 +1,5 @@
 -- ft.page: `ftd::Library`
+toc: $config.doc-toc
+sub-sections: $config.doc-header
+
     

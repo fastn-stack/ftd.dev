@@ -1,6 +1,9 @@
 /-- ft-core.concept:
 
 -- ft.page: Reading FTD Files
+toc: $config.api-toc
+sub-sections: $config.doc-header
+
     
 -- ft.markdown: 
 

@@ -1,5 +1,6 @@
 -- import: fpm
 
+
 -- ftd.color efefef: #efefef
 dark: #efefef
 
@@ -31,6 +32,10 @@ dark: #f09483
 dark: yellow
 
 -- ft.page: An Architecture Diagram
+
+-- ft.page: An Architecture Diagram
+toc: $config.examples-toc
+
 
 -- ft.markdown: 
 

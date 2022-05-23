@@ -1,4 +1,7 @@
 -- ft.page: Alternatives
+toc: $config.alternatives-toc
+sub-sections: $config.why-header
+
 
 -- ft.markdown: 
 

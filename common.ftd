@@ -2,6 +2,9 @@
 -- import: fpm
 
 -- ft.page: Common Attributes
+toc: $config.api-toc
+sub-sections: $config.doc-header
+
 
 
 -- ftd.column:
@@ -1656,6 +1659,7 @@ lang: ftd
 \-- ftd.column:
 padding: 80
 
+
 \-- ftd.text: FifthTry Red
 z-index: 1
 background-color: $red
@@ -1671,6 +1675,12 @@ left: 40
 top: 40
 padding: 40
 anchor: parent
+
+\-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
+color: $fpm.color.main.text
+
 
 
 -- ft.output:
@@ -1743,8 +1753,17 @@ In case if `anchor` property is set, all the values are supported
 -- ft.code: specifying align for anchor
 lang: ftd
 
+
 \-- ftd.color green: green
 dark: green
+
+-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
+color: $fpm.color.main.text
+width: fill
+height: fill
+
 
 \-- ftd.color orange: orange
 dark: orange
@@ -2054,7 +2073,16 @@ open: false
 -- container: outer
 
 
+
 -- ft.h1: `white-space: String`
+
+\-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
+color: $fpm.color.main.text
+width: fill
+height: fill
+
 
 The white-space CSS property sets how white space inside an
 element is handled.
@@ -2068,6 +2096,7 @@ lang: ftd
 \-- ftd.text:
 white-space: pre-wrap
 
+
 But ere she from the church-door stepped She smiled and told us why:
 'It was a wicked woman's curse,' Quoth she, 'and what care I?' She smiled,
 and smiled, and passed it off Ere from the door she stept—
@@ -2077,6 +2106,10 @@ and smiled, and passed it off Ere from the door she stept—
 
 -- ftd.text:
 white-space: pre-wrap
+
+-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
 color: $fpm.color.main.text
 
 But ere she from the church-door stepped She smiled and told us why:
@@ -2101,9 +2134,16 @@ lang: ftd
 \-- ftd.text:
 text-transform: capitalize
 
+
 But ere she from the church-door stepped She smiled and told us why:
 'It was a wicked woman's curse,' Quoth she, 'and what care I?' She smiled,
 and smiled, and passed it off Ere from the door she stept—
+
+\-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
+color: $fpm.color.main.text
+
 
 
 -- ft.output:
@@ -2119,9 +2159,18 @@ and smiled, and passed it off Ere from the door she stept—
 -- container: outer
 
 
+
 -- ft.h1: `slot: String`
 
 The `slot` property specifies a grid item's location within a grid. This
 should be assign to the child component.
 
 Refer: [ftd.grid](grid/)
+
+-- ftd.text: Sample Text
+role: $fpm.type.heading-large
+align: center
+color: $fpm.color.main.text
+width: fill
+height: fill
+
