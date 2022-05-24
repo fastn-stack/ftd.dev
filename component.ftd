@@ -5,8 +5,7 @@
 
 
 -- ft.page: `component`
-toc: $config.api-toc
-sub-sections: $config.doc-header
+
 
 
 

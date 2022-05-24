@@ -2,8 +2,7 @@
 -- import: fpm
 
 -- ft.page: Common Attributes
-toc: $config.api-toc
-sub-sections: $config.doc-header
+
 
 
 
@@ -2106,8 +2105,6 @@ and smiled, and passed it off Ere from the door she stept—
 
 -- ftd.text:
 white-space: pre-wrap
-
--- ftd.text: Sample Text
 role: $fpm.type.heading-large
 align: center
 color: $fpm.color.main.text

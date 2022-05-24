@@ -2,8 +2,7 @@
 -- import: fpm
 
 -- ft.page: ID in `ftd`
-toc: $config.api-toc
-sub-sections: $config.doc-header
+
 
 
 -- boolean is-mobile: false

@@ -1,6 +1,4 @@
 -- ft.page: Inner Container
-toc: $config.ui-toc
-sub-sections: $config.doc-header
 
 
 

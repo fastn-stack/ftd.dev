@@ -1,6 +1,5 @@
 -- ft.page: Comments In `ftd` Files
-toc: $config.doc-toc
-sub-sections: $config.doc-header
+
 
 -- ft.markdown: 
 

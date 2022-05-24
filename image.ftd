@@ -1,6 +1,4 @@
 -- ft.page: Image
-toc: $config.api-toc
-sub-sections: $config.doc-header
 
     
 -- ft.markdown: 

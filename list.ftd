@@ -1,8 +1,7 @@
 /-- ft-core.concept:
 
 -- ft.page: `list`
-toc: $config.data-toc
-sub-sections: $config.doc-header
+
 
 
 -- ft.markdown: 

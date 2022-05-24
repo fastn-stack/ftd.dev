@@ -1,8 +1,6 @@
 -- import: ftd.dev/assets
 
 -- ft.page: FTD Journal
-toc: $config.dev-toc
-sub-sections: $config.doc-header
 id: page
 
 

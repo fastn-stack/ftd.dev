@@ -1,6 +1,5 @@
 -- ft.page: Container Attributes
-toc: $config.api-toc
-sub-sections: $config.doc-header
+
 
 
     

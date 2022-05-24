@@ -1,6 +1,5 @@
 -- ft.page: Building UIs with `ftd`
-toc: $config.ui-toc
-sub-sections: $config.doc-header
+
 
 
 

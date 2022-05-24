@@ -7,7 +7,7 @@
 
 
 -- fpm.sitemap-data sitemap:
-$processor$: get-sitemap
+$processor$: sitemap
 
 
 

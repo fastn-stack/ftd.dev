@@ -5,7 +5,7 @@
 
 
 -- ft.page:
-toc: $config.empty-toc
+
 
 
 -- ftd.column:
