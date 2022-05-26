@@ -8,9 +8,6 @@
 
 
 
--- fpm.sitemap-data sitemap:
-$processor$: sitemap
-
 
 -- ft.github: https://github.com/fifthtry/ftd/
 -- ft.site-url: /
