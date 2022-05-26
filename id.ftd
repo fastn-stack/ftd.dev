@@ -5,11 +5,6 @@
 
 
 
--- boolean is-mobile: false
-
--- is-mobile: true
-if: $ftd.device == mobile
-
 
 -- ft.h1: What is `id`?
 
