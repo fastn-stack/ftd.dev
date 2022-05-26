@@ -1,14 +1,15 @@
 -- import: ft
--- import: bs
+-- import: ps
+-- import: fbs
 -- import: ftd.dev/assets
 
 
 -- fpm.toc-item list empty-toc:
 
 
+
 -- fpm.sitemap-data sitemap:
 $processor$: sitemap
-
 
 
 -- ft.github: https://github.com/fifthtry/ftd/
@@ -19,9 +20,8 @@ $processor$: sitemap
 light: $assets.files.images.fifthtry-logo.png.light
 dark: $assets.files.images.fifthtry-logo.png.dark
 
--- ft.show-brand: true
 
--- bs.current-brand: 2
+-- ps.current-product: 2
 
 
 -- ft.sections:
