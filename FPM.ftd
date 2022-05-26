@@ -6,7 +6,7 @@ language: en
 
 -- fpm.dependency: fifthtry.github.io/doc-site as ft
 
--- fpm.dependency: fifthtry.github.io/brand-switcher as bs
+-- fpm.dependency: fifthtry.github.io/product-switcher as bs
 
 
 -- fpm.dependency: fifthtry.github.io/dark-mode-switcher as dms
