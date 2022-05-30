@@ -89,7 +89,6 @@ these.
 
 -- ft.image:
 src: $assets.files.images.ask-id-to-ftd.png
-scale: 1
 width: fill
 
 
@@ -133,7 +132,6 @@ which becomes `id` for DOM node of `ftd.text`element. 😊 )
 
 -- ft.image:
 src: $assets.files.images.ftd-give-me-id-yes-got-it.png
-scale: 1
 width: fill
 
 
@@ -209,5 +207,4 @@ id available for element which you want to refer to.
 
 -- ft.image:
 src: $assets.files.images.ftd-give-me-an-element-with-id.png
-scale: 1
 width: fill
