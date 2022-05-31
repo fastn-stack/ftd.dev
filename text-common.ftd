@@ -1,3 +1,54 @@
+-- import: fpm
+
+
 -- ft.page: Common Text Attributes
 
+-- ftd.column:
+id: outer
+
+-- ft.markdown:
+
+These attributes are available to all `ftd` "kernel" components.
+
+-- ft.h1: `text-align:`
+
+-- ft.markdown:
+
+This `text-align` property sets the alignment of text. It takes input like this:
+
+-- ft.code: specifying alignment of text
+lang: ftd
+
+\-- ftd.text: FifthTry
+text-align: center
+
+-- ft.markdown:
+
+This will render like this:
+
+-- ft.output:
+
+-- ftd.text: FifthTry
+width: 400
+text-align: center
+color: $fpm.color.main.text-strong
+
+-- container: outer
+
+-- ft.code: specifying alignment of text
+lang: ftd
+
+\-- ftd.text: FifthTry
+text-align: left
+
+-- ft.markdown:
+
+This will render like this:
+
+-- ft.output:
+
+-- ftd.text: FifthTry
+width: 400
+text-align: left
+color: $fpm.color.main.text-strong
 
