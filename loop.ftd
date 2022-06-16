@@ -22,7 +22,7 @@ lang: ftd
 
 -- ft.markdown:
 
-Here we defined a list with three elements. Now say we want to
+Here we defined a list of type `string`, with three elements. Now say we want to
 display each of them:
 
 -- ft.code:
