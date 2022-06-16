@@ -28,7 +28,7 @@ display each of them:
 -- ft.code:
 lang: ftd
 
-\-- ftd.text: 
+\-- ftd.text: $obj
 $loop$: $people as $obj
 
 -- ft.markdown:
