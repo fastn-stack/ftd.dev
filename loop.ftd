@@ -12,7 +12,7 @@ Consider this list:
 -- ft.code:
 lang: ftd
 
-\-- list people:
+\-- string list people:
 
 \-- people: Arpita
 
