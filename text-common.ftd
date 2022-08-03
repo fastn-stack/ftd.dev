@@ -110,12 +110,23 @@ This will render like this:
 style: strike
 color: $fpm.color.main.text-strong
 
+-- container: outer
+
 -- ft.code: specifying multiple styles
 lang: ftd
 
 \-- ftd.text: FifthTry
 style: italic heavy underline
 
+-- ft.markdown:
+
+This will render like this:
+
+-- ft.output:
+
+-- ftd.text: FifthTry
+style: italic heavy underline
+color: $fpm.color.main.text-strong
 
 -- container: outer
 
