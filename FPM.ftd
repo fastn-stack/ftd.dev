@@ -77,8 +77,8 @@ language: en
   - `ftd.scene`: scene/
   - `ftd.grid`: grid/
 - Universal Attributes: universal-attributes/
-- Common Kernel Attributes: common/
-- Common Text Kernel Attributes: text-common/
+- Common Attributes: common/
+- Common Text Attributes: text-common/
 - FTD "markup": markup/
 - Container Attributes: container/
 - Container Management: container-management/
