@@ -76,8 +76,8 @@ language: en
   - `ftd.input`: input/
   - `ftd.scene`: scene/
   - `ftd.grid`: grid/
-- Common Attributes: common/
-- Common Text Attributes: text-common/
+- Common Kernel Attributes: common/
+- Common Text Kernel Attributes: text-common/
 - FTD "markup": markup/
 - Container Attributes: container/
 - Container Management: container-management/
