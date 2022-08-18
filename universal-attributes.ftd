@@ -1,0 +1,29 @@
+-- import: fpm
+
+;; Universal html attributes
+;; Reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
+;; id   ->  Specifies a unique id for an element (Done)
+;; title    ->  Specifies extra information about an element (Done)
+;; term     ->  Specifies an unique term for linking elements within the same package
+
+-- ft.page: Universal Attributes
+
+-- ftd.column:
+id: outer
+
+-- ft.markdown:
+
+These attributes are available to all `ftd` components.
+
+-- ft.h1: `title: Optional String`
+
+This is used to create
+[title attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
+on generated DOM.
+
+-- ft.h1: `id: Optional String`
+
+This attribute gives a unique identifier [id](/id/)
+to any component.
+
+-- ft.h1: `term: Optional String`

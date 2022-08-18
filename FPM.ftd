@@ -76,6 +76,7 @@ language: en
   - `ftd.input`: input/
   - `ftd.scene`: scene/
   - `ftd.grid`: grid/
+- Universal Attributes: universal-attributes/
 - Common Kernel Attributes: common/
 - Common Text Kernel Attributes: text-common/
 - FTD "markup": markup/

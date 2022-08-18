@@ -81,16 +81,6 @@ background-color: $red
 
 -- container: outer
 
-
-
-
--- ft.h1: `title: Optional String`
-
-This is used to create
-[title attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
-on generated DOM.
-
-
 -- ft.h1: `border-width: Integer`
 
 Use this property to specify the width of the border. By default the `border-width`
