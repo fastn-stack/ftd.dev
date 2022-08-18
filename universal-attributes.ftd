@@ -30,31 +30,31 @@ to any component.
 ;; "move-left", "move-right", "right", "align", "scale", "rotate", "scale-x",
 ;; "scale-y", "slot"
 
--- ft.h1: `top: Optional String`
+-- ft.h1: `top: Optional Integer`
 
--- ft.h1: `bottom: Optional String`
+-- ft.h1: `bottom: Optional Integer`
 
--- ft.h1: `left: Optional String`
+-- ft.h1: `left: Optional Integer`
 
--- ft.h1: `move-up: Optional String`
+-- ft.h1: `move-up: Optional Integer`
 
--- ft.h1: `move-down: Optional String`
+-- ft.h1: `move-down: Optional Integer`
 
--- ft.h1: `move-left: Optional String`
+-- ft.h1: `move-left: Optional Integer`
 
--- ft.h1: `move-right: Optional String`
+-- ft.h1: `move-right: Optional Integer`
 
--- ft.h1: `right: Optional String`
+-- ft.h1: `right: Optional Integer`
 
 -- ft.h1: `align: Optional String`
 
--- ft.h1: `scale: Optional String`
+-- ft.h1: `scale: Optional Decimal`
 
--- ft.h1: `scale-x: Optional String`
+-- ft.h1: `scale-x: Optional Decimal`
 
--- ft.h1: `scale-y: Optional String`
+-- ft.h1: `scale-y: Optional Decimal`
 
--- ft.h1: `rotate: Optional String`
+-- ft.h1: `rotate: Optional Integer`
 
 -- ft.h1: `slot: Optional String`
 
