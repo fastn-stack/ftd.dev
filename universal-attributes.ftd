@@ -19,8 +19,7 @@ These attributes are available to all `ftd` components.
 
 -- ft.h1: `id: Optional String`
 
-This attribute gives a unique identifier [id](/id/)
-to any component.
+This attribute gives a unique identifier [id](/id/) to any component.
 
 ;; Other universal attributes: "top", "bottom", "left", "right", "move-up",
 ;; "move-down", "move-left", "move-right", "align", "scale", "rotate", "scale-x",
@@ -639,4 +638,3 @@ The `slot` property specifies a grid item's location within a grid. This
 should be assign to the child component.
 
 Refer: [ftd.grid](grid/)
-
