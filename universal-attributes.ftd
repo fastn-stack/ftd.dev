@@ -58,8 +58,3 @@ to any component.
 
 -- ft.h1: `slot: Optional String`
 
-/-- ft.h1: `term: Optional String`
-
-This attribute specifies a unique term to any component which can be used to refer it using
-term linking syntax from within any markdown supporting component.
-
