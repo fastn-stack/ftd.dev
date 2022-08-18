@@ -26,12 +26,45 @@ on generated DOM.
 This attribute gives a unique identifier [id](/id/)
 to any component.
 
--- ft.h1: `term: Optional String`
+
+;; Other universal attributes: "top", "bottom", "left", "move-up", "move-down",
+;; "move-left", "move-right", "right", "align", "scale", "rotate", "scale-x",
+;; "scale-y", "slot"
+
+-- ft.h1: `top: Optional String`
+
+-- ft.h1: `bottom: Optional String`
+
+-- ft.h1: `left: Optional String`
+
+-- ft.h1: `move-up: Optional String`
+
+-- ft.h1: `move-down: Optional String`
+
+-- ft.h1: `move-left: Optional String`
+
+-- ft.h1: `move-right: Optional String`
+
+-- ft.h1: `right: Optional String`
+
+-- ft.h1: `align: Optional String`
+
+-- ft.h1: `scale: Optional String`
+
+-- ft.h1: `scale-x: Optional String`
+
+-- ft.h1: `scale-y: Optional String`
+
+-- ft.h1: `rotate: Optional String`
+
+-- ft.h1: `slot: Optional String`
+
+/-- ft.h1: `term: Optional String`
 
 This attribute specifies a unique term to any component which can be used to refer it using
 term linking syntax from within any markdown supporting component.
 
--- ft.code: specifying term on a component
+/-- ft.code: specifying term on a component
 lang: ftd
 
 \-- ftd.text A:
@@ -43,7 +76,7 @@ name: abc
 age: 22
 term: foo
 
--- ft.markdown:
+/-- ft.markdown:
 
 To refer the above component, one can either use
 
