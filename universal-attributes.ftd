@@ -531,7 +531,7 @@ open: false
 -- container: outer
 
 
--- ft.h1: `scale: Decimal`
+-- ft.h1: `scale: Optional Decimal`
 
 The `scale` property increases or decreases the size of an element
 by number of times given.
@@ -557,7 +557,7 @@ padding: 5
 -- container: outer
 
 
--- ft.h1: `scale-x: Decimal`
+-- ft.h1: `scale-x: Optional Decimal`
 
 The `scale-x` property increases or decreases the width of an element
 by number of times given.
@@ -582,7 +582,7 @@ padding: 5
 
 -- container: outer
 
--- ft.h1: `scale-y: Decimal`
+-- ft.h1: `scale-y: Optional Decimal`
 
 The `scale-y` property increases or decreases the height of an element
 by number of times given.
@@ -608,7 +608,7 @@ padding: 5
 -- container: outer
 
 
--- ft.h1: `rotate: Integer`
+-- ft.h1: `rotate: Optional Integer`
 
 The `rotate` property rotates an element clockwise or
 counter-clockwise according to a given degree.
@@ -633,7 +633,7 @@ padding: 5
 
 -- container: outer
 
--- ft.h1: `slot: String`
+-- ft.h1: `slot: Optional String`
 
 The `slot` property specifies a grid item's location within a grid. This
 should be assign to the child component.
