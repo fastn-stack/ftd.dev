@@ -58,6 +58,7 @@ language: en
 - `record`: record/
 - `or-type`: or-type/
 - `list`: list/
+- FTD Variables: /ftd-variables/
 
 ## UI: ui/
 
