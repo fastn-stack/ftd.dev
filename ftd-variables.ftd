@@ -44,7 +44,7 @@ color link-visited-code:
 color ul-ol-li-before:
 color blockquote:
 
--- ft.h1: How to Use
+-- ft.h1: How to Use in FTD Files
 
 -- ft.code:
 lang: ftd
