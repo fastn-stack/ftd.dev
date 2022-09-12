@@ -1,6 +1,6 @@
 -- import: fpm
 
--- ft.page: Markdown linking in FTD
+-- ft.page: Reference linking in FTD
 
 -- ftd.column:
 id: outer-column
@@ -12,7 +12,7 @@ the package contents will grow in size and eventually they might want to refer t
 of the components defined in other files
 from the current file or maybe to a component within the same file.
 
-FTD supports markdown linking which can be used to link components using [id](id: id-page).
+FTD supports reference linking which can be used to link components using [id](id: id-page).
 Any {component} whether it's a heading, markdown, code-block etc. can have this unique id
 associated with it since id is a [universal attribute](id: universal-attributes).
 
@@ -65,4 +65,4 @@ Isn't this even more simpler ?.
 - Scope of linking components is limited within the `same package`.
 Cross Linking of components between two different packages is not supported yet.
 
-- Currently, this markdown linking is supported only from within `markdown` components.
+- Currently, this reference linking is supported only from within `markdown` components.

@@ -77,7 +77,7 @@ language: en
   - `ftd.input`: input/
   - `ftd.scene`: scene/
   - `ftd.grid`: grid/
-- Markdown Linking: markdown-linking/
+- Reference Linking: reference-linking/
 - Universal Attributes: universal-attributes/
 - Common Attributes: common/
 - Common Text Attributes: text-common/
