@@ -65,5 +65,7 @@ Isn't this even more simpler ?.
 - Scope of linking components is limited within the `same package`.
 Cross Linking of components between two different packages is not supported yet.
 
-- Using [x] or [X] as linking syntax is not allowed as these are reserved for checkboxes, instead use
-[x](id: x) or [X](id: X)
+- Using `[x]` or `[X]` as linking syntax is not allowed if your component has an `id: x` as these are reserved for checkboxes, instead use
+`[x](id: x)` or `[X](id: X)` to get the same effect.
+
+- This linking logic will only work in `ftd.text` and the components derived using this `ftd.text` component.
