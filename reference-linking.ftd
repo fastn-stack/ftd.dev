@@ -26,12 +26,18 @@ which needs to be linked, then use this syntax
 
 `[<linked-text>](id: <id-to-link>)`
 
--- ft.h3: **Condensed Syntax**:
+-- ft.h3: **Condensed Syntax**
 
 When the user wants the linked text to be same as the id itself,
 then use this simplified syntax
 
 `[<id-to-link>]`
+
+-- ft.h3: **Escaping linking syntax**
+
+Sometimes, there might be cases where the user wants to treat this linking syntax as a raw text instead of a link,
+he/she can use the escape character `\` preceding this syntax to make it behave as a raw text.
+For eg. `\[foo]`, `\[this is escaped](id: hello)`
 
 -- ft.h1: How to use linking syntax
 
