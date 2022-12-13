@@ -18,13 +18,18 @@ lang: ftd
 Here we have declared a new variable called `primes`, which is a `list` of
 `integer`s. When the list is created it is empty.
 
--- ft.h1: Adding values to list
+`Note`: By default, lists are `immutable`. The user can make the list `mutable`
+by prefixing it with `$` like this `-- integer list $primes:`
 
-After initializing the list, we can add elements to the list
-by mentioning the `list-type` like this: `-- <list-type>: <value>`.
+-- ft.h1: Initializing values to a list
 
-`Note`: Also we need to use the end syntax `-- end: <list-name>` to mark
-the end of the list.
+We can add elements to the list during initialization
+by mentioning the `list-type` like this:
+
+`-- <list-type>: <value>`.
+
+`Note`: Also make sure to use the end syntax `-- end: <list-name>` to mark
+the end of the list during initialization.
 
 -- ft.code:
 lang: ftd
