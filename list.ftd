@@ -29,7 +29,7 @@ the end of the list.
 -- ft.code:
 lang: ftd
 
-\-- integer list $primes:
+\-- integer list primes:
 
 \-- integer: 1
 \-- integer: 3
@@ -50,7 +50,7 @@ lang: ftd
 caption name:
 body bio:
 
-\-- person list $people:
+\-- person list people:
 
 \-- person: Amit Upadhyay
 
