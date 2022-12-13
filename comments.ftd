@@ -2,8 +2,7 @@
 
 -- ft.h1: Block comment
 
-Writing `/` before any section or subsection will "comment out" the entire section
-or sub-section.
+Writing `/` before any section will "comment out" that entire section.
 
 
 -- ft.code:
