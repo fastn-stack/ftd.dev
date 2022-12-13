@@ -38,7 +38,7 @@ lang: ftd
 caption name:
 color: $fpm.color.main.text
 color if { present }: $fpm.color.main.cta-primary.text
-color if { !present }: $fpm.color.main.cta-secondary.text
+color if { !present }: $fpm.color.main.error.text
 text: $name
 
 \-- foo: hello
@@ -67,8 +67,8 @@ width: fill
 -- ftd.text foo1:
 caption name:
 color: $fpm.color.main.text
-color if $present: $fpm.color.main.text
-color if not $present: $fpm.color.main.text
+color if $present: $fpm.color.main.cta-primary.text
+color if not $present: $fpm.color.main.error.text
 text: $name
 
 
