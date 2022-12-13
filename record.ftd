@@ -37,8 +37,8 @@ caption `name` and list of `employees` of `person` type.
 
 -- ft.h1: Declaring a `record` with default values
 
-Sometimes, the user might want to provide default values to the record
-fields, in case if the user doesn't specify those during initialization.
+Sometimes, the programmer might want to provide default values to the record
+fields, in case if he/she doesn't specify those during initialization.
 
 -- ft.code: Declaring a Person record with default field values
 lang: ftd
