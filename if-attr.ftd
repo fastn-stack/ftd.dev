@@ -37,8 +37,8 @@ lang: ftd
 \-- ftd.text foo:
 caption name:
 color: $fpm.color.main.text
-color if $present: $fpm.color.main.cta-primary.text
-color if not $present: $fpm.color.main.cta-secondary.text
+color if { present }: $fpm.color.main.cta-primary.text
+color if { !present }: $fpm.color.main.cta-secondary.text
 text: $name
 
 \-- foo: hello
@@ -98,8 +98,10 @@ lang: ftd
 caption name:
 component: ftd.text
 color: $fpm.color.main.text
-color if $present: $fpm.color.main.text
+color if { present }: $fpm.color.main.text
 text: $name
+
+\-- end: foo
 
 \-- foo: hello
 
@@ -150,7 +152,7 @@ lang: ftd
 caption name:
 optional string yes:
 color: $fpm.color.main.text
-color if $yes is not null: $fpm.color.main.text
+color if { yes != null }: $fpm.color.main.text
 text: $name
 
 \-- foo: hello
@@ -208,9 +210,9 @@ lang: ftd
 caption name:
 optional string yes:
 color: $fpm.color.main.text
-color if $present: $fpm.color.main.cta-primary.text
-color if not $present: $fpm.color.main.cta-secondary.text
-color if $yes is not null: $fpm.color.main.success.text
+color if { present }: $fpm.color.main.cta-primary.text
+color if { !present }: $fpm.color.main.cta-secondary.text
+color if { yes != null }: $fpm.color.main.success.text
 text: $name
 
 \-- foo: hello
